@@ -1,0 +1,72 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{Maksym Polovyi}
+\title{Colloid MC}
+\begin{document}
+\section{Test}
+
+Our model is influenced and extend the model proposed in \cite{Marshall2015}. Main property of the mentioned model is the arising of ordered state in one dimension.
+
+One-dimensional model in \cite{Marshall2015} consists of an oriented particles which have two different interaction patches A and B, which located on the opposite sides of a particle, and particles interacts if their patronymic patches are within interaction radius. Despite being confined in one dimension, particles can explore full three dimension orientation space.
+
+The order parameter is defined as follows:
+\begin{equation}
+S = \frac{3 \overline{\cos^2 \theta} - 1}{2}
+\end{equation}
+
+Where $\theta$ it the angle between particle direction and spatial axis.
+
+The intermolecular potential for particles of this type is given as
+
+\begin{equation}
+E(12) = E_{HS}(\vec{r}_{12}) - \varepsilon_{AB}(O_{AB}(12) + O_{BA}(12))
+\end{equation}
+
+where $1 = (z_1, \theta_1, \varphi_1)$ represents first particle position and orientation. In \cite{Marshall2015} the $\phi_{HS}(r_{12})$ is the hard sphere repulsion, which in 1D corresponds to
+
+\begin{equation}
+E_{HS}(\vec{r}_{12}) = \begin{cases}
+	\infty &\text{$|z_1 - z_2| \leq d$}\\
+   	0 	&\text{$|z_1 - z_2| > d$}
+\end{cases}
+\end{equation}
+
+Since interaction is restricted to patronymic patches, the $O_{AB}$ is given by the following equation:
+
+\begin{equation}
+O_{AB}(12) = \begin{cases}
+	1 &\text{$|z_1 - z_2| <= z_c$ and $\theta_{A1} \leq \theta_c$ and $\theta_{B2} \leq \theta_c $}\\
+   	0 &\text{otherwise}
+\end{cases}
+\end{equation}
+
+where $z_c$ and $\theta_c$ are the maximum distance between centres and maximum angle between particle orientation and spatial axis respectfully.
+
+Being very simple to implement and still able to capture \emph{interesting???} results, this model have some flaws, main of which is discontinued particle-particle interaction function.
+
+While being irrelevant for Monte-Carlo methods, this kind of interaction functions leads to infinite forces in Molecular Dynamics methods.
+
+To remove discontinuity whereas saving important features (interaction anisotropy and hard sphere repulsion) of the model described above, we offer following modifications.
+The intermolecular potential consists of repulsion and interaction parts.
+\begin{equation}
+E(12) = - \varepsilon_{AB} (E_{r} + E_{i})
+\end{equation}
+
+The repulsion part is given in form of Yukawa potential
+\begin{equation}
+E_{r} = \frac{A \exp(-r k)}{r}
+\end{equation}
+where $A$ and $k$ - parameters which describe particle properties. The interaction part is a simple electric dipole-dipole interaction
+\begin{equation}
+E_{i} = \frac{1}{r^3} [3 \cos \theta_1 \cos \theta_2 - \cos \delta \theta]
+\end{equation}
+
+As above, $\theta$ is the angle between particle orientation and spatial axis, whereas $\delta \theta$ is the angle between two particle orientations.
+
+\bibliographystyle{plain}
+\bibliography{Bibliography}
+\end{document}
