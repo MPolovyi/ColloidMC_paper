@@ -10,29 +10,29 @@
 \begin{document}
 \section{Model}
 
-\textcolor{red}{In this section we provide theoretical description of the model. Computational aspects will be highlighted in the following section, and the results will be elaborated in the section Results.}
+\textcolor{red}{In this section we provide theoretical description of the model. Computational aspects will be highlighted in the following section, and the results will be elaborated on in the Results section.}
 
-We consider dipole \textcolor{red}{???} particles with (constant) dipole moment $\mu \vec{m}$, where $|\vec{m}| = 1$. We don't impose any constraints on rotational degrees of freedom, whereas we restrict particle movement to one dimension.
+We consider dipole \textcolor{red}{???} particles with \textcolor{red}{(constant)} dipole moment $\mu \vec{m}$, where $|\vec{m}| = 1$. We don't impose any constraints on rotational degrees of freedom, whereas we restrict particle movements to one dimension.
 
-We need to stress here that our model isn't one-dimensional in nature, since particles can explore full 3D orientation space. The movement confinements should be regarded as external force applied to particles, which prevents them from leaving 1D tube. For specificity we assume that particles are confined to $z$ axis.
+We need to stress here that our model isn't one-dimensional in nature, since particles can explore full 3D orientation space. The movement confinements should be regarded as external force \textcolor{red}{(\textbf{or} field)} applied to particles , which prevents them from leaving 1D tube. For specificity we assume that particles are confined to $z$ axis.
 
-The general equation for dipole-dipole interaction is as follows:
+The general equation \textcolor{red}{(\textbf{or} pair potential)} for dipole-dipole interaction is as follows:
 
 \label{eq_dipole_dipole_interaction}
 \begin{equation}
 E = \frac{\mu_1 \mu_2}{r^3}[3 (\vec{m}_1 \cdot \vec{r}_{12})(\vec{m}_2 \cdot \vec{r}_{12}) - (\vec{m}_1 \cdot \vec{m}_2)]
 \end{equation}
-where $m_1$ and $m_2$ are dipole moments of particles, $\vec{r}_{12}$ is the direction vector which points from one dipole to the other, and $(\vec{a} \cdot \vec{b})$ denotes dot product.
+where $\mu_1\vec{m}_1$ and $\mu_2\vec{m}_2$ are dipole moments of interacting particles, $\vec{r}_{12}$ is the direction vector \textcolor{red}{(which points)} from one particle to the other, and $(\vec{a} \cdot \vec{b})$ denotes dot product.
 
-Without loosing any generality one can assume that $\mu_1 = \mu_2 = 1$. Constraining particles in 1D tube we effectively enforce $\vec{r}_{12}$ to be co-aligned with $z$ axis. Accounting for it, (\ref{eq_dipole_dipole_interaction}) transforms \textcolor{red}{(simplifies)} into following:
+Without loosing any generality one can assume that $\mu_1 = \mu_2 = 1$. By constraining particles in 1D tube we effectively enforce $\vec{r}_{12}$ to be co-aligned with $z$ axis. \textcolor{red}{Accounting for it, (\ref{eq_dipole_dipole_interaction}) transforms (simplifies)} into following:
 
 \label{eq_dipole_dipole_1D}
 \begin{equation}
 E_{attractive} = \frac{1}{r^3} [3 \cos \theta_1 \cos \theta_2 - (\vec{m}_1 \cdot \vec{m}_2)]
 \end{equation}
-where $\theta_1$ and $\theta_2$ are the angles between dipole moment and $z$ axis for the first and second particle respectfully. Because of three-dimensionality of our model, we can't simplify last term, which describes relative orientation of particles.
+where $\theta_1$ and $\theta_2$ are the angles between particles dipole moments and $z$ axis for the first and second particle respectfully. Because of three-dimensionality of our model, we can't simplify last term, which accounts for relative orientation of particles.
 
-The above equation describes attractive term of particle-particle interaction. Considering repulsion, the simplest option is to use hard-sphere repulsion. This approach have a drawback of leaving us with pair potential discontinued over distance. Aiming for \textcolor{red}{system dynamics survey}, we opted for repulsive Yukawa potential in a form
+The above equation describes attractive \textcolor{red}{(and aligning)} term of particle-particle interaction. \textcolor{red}{Considering repulsion, the simplest option is to use hard-sphere repulsion}. This approach have a drawback of leaving us with discontinued over distance pair potential. Aiming for \textcolor{red}{system dynamics survey}, we opted for Yukawa potential in a form
 
 \label{eq_yukawa_interaction}
 \begin{equation}
@@ -40,12 +40,12 @@ E_{repulsive} = \frac{A \exp(-r k)}{r}
 \end{equation}
 where $A$ and $k$ -- parameters which describe particle properties (hardness of repulsion and particle size).
 
-Summing all of the above, the particle-particle interaction potential is presented in the following form:
+Summarizing all of the above, the particle-particle interaction potential is presented in the following form:
 \label{eq_full_particle_particle_interraction}
 \begin{equation}
 E_{12} = -\left\{ \frac{\epsilon_{12} A \exp(-r k)}{r} +  \frac{\epsilon_{12}}{r^3} [3 \cos \theta_1 \cos \theta_2 - (\vec{m}_1 \cdot \vec{m}_2)]\right\}
 \end{equation}
-where $\epsilon_{12}$ is \textcolor{red}{How to call it?? AND maybe here I should put some figures?}
+where $\epsilon_{12}$ governs the interaction force, and through that --- temperature of the system. \textcolor{red}{maybe here I should put some figures?}
 
 In our survey we concentrate on the following \textcolor{red}{quantities??}.
 
@@ -53,31 +53,39 @@ Order parameter $S$ defined in standard way:
 \begin{equation}
 S = \frac{3 \overline{\cos^2 \theta} - 1}{2}
 \end{equation}
-where $\theta$ it the angle between particle direction and spatial axis.
+where $\theta$ it the angle between particle direction and spatial axis, while horizontal bar denotes mean over all particles.
+
 Orientation correlation as function of distance between particles:
 \begin{equation}
 \langle\cos \theta_1 \cos \theta_2\rangle \propto |z_2 - z_1|
 \end{equation}
-And particle chains length probability distribution \textcolor{red}{How to call it??}. One can think of different ways to define it, but the simplest is the following:  two particles considered to be "chained" if 
+
+And particle chains length probability distribution \textcolor{red}{How to call it??}. One can think of different ways to define it, but the simplest is the following: two particles considered to be "chained" if 
 \begin{equation}
 \begin{cases}
 	|z_1 - z_2| &\leq d\\
 	\cos \theta_1 \cdot \cos \theta_2 &\geq 0
 \end{cases}
 \end{equation}
-Second option enforces bonded particles to have same projection of the dipole moment vector on the spatial axis. As we will show in the \textcolor{red}{Results} section, this is an unnecessary, since on the equilibrium chained (by distance) particles tend to have the same orientation.
+
+Second check enforces bonded particles to have same sign of projection of the dipole moment vector on the spatial axis. As we will show in the \textcolor{red}{Results} section, this is unnecessary, since on the equilibrium chained (by distance) particles tend to have the same orientation.
 
 \section{Monte Carlo Simulations}
 
-At first we concentrate on the equilibrium state of the system. For that we implement a common MC algorithm, each step of it consists of test rotation and test move. Test rotation is evenly distributed random change of \textcolor{yellow}{particle dipole moment} direction. Test move is a simple change of a particle coordinate ($z_{t+1} = z_t + \Delta z$), where $\Delta z$ is a test step. Test step is a random value evenly distributed in $[+\delta, -\delta]$, whereas $\delta$ equals to \textcolor{red}{(actually, one half of a distance between a location of potential minimum and potential zero, but it's complicated)}. This constraint on the particle movement was done in order to eliminate possibility of particles switching positions by overstepping repulsive potential.
+At first we concentrate on the equilibrium state of the system. For that we implement a common MC algorithm, each step consisting of test rotation and test move. Test rotation is evenly distributed over sphere random change of particle dipole moment direction.
 
-After move and rotation test step is evaluated with standard Metropolis acceptance criteria.
+Test move is a simple change of a particle coordinate ($z_{t+1} = z_t + \Delta z$), where $\Delta z$ is a random value evenly distributed in $[+\delta, -\delta]$, whereas $\delta$ equals to \textcolor{red}{(actually, one half of a distance between a location of potential minimum and potential zero, but it's complicated)}. This constraint was done in order to eliminate possibility of particles switching positions by overstepping repulsive potential.
+
+After move and rotation test step is evaluated with standard Metropolis acceptance criteria. For the sake of simplicity we restrict interactions to closest neighbours (particle $i$ interacts only with $i-1$ and $i+1$ particles) 
+
+On each end of the system we implement continuous border conditions.
 
 Important question is the length (number of test steps taken) of simulations (\textcolor{red}{Here will be steps picture?}).
 
+\section{Production runs and results}
+
 Our simulations have been made for a case of average density value ($\rho = 0.5$). As diameter of a particle we have taken the position of the minimum of (\ref{eq_full_particle_particle_interraction}), obtained when and $(\vec{m}_1 \cdot \vec{m}_2) = 0$ \textcolor{red}{see figure !}. The length of the simulation system $L = 2*N*d$, where $N$ -- number of particles and $d$ -- particle diameter.
 
-On each end of the system we implement continuous border conditions.
 
 \bibliographystyle{plain}
 \bibliography{Bibliography}
