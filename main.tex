@@ -32,7 +32,7 @@ By constraining particles in 1D tube we effectively enforce $\vec{r}_{12}$ to be
 
 \label{eq_dipole_dipole_1D}
 \begin{equation}
-E_{12}^{attr} = - \frac{1}{\Delta z^3} [3 \cos \theta_1 \cos \theta_2 - (\vec{m}_1 \cdot \vec{m}_2)]
+E_{12}^{attr} = - \frac{1}{\Delta z^3} [3 \cos \theta_1 \cos \theta_2 - (\hat{m}_1 \cdot \hat{•}{m}_2)]
 \end{equation}
 where $\theta_1$ and $\theta_2$ are the angles between $z$ axis and dipole moments of the first and second particle respectfully, and $\Delta z = |z_2 - z_1|$, where $z_1$ and $z_2$ are displacements of particle centers along $z$ axis. Because of three-dimensionality of our model, we can't simplify the last term, which accounts for relative orientation of the particles.
 
@@ -44,24 +44,34 @@ E_{12}^{rep} = \frac{A \exp(-k \Delta z)}{\Delta z}
 Summarizing all of the above, the particle-particle interaction potential is presented in the following form:
 \label{eq_full_particle_particle_interraction}
 \begin{equation}
-E_{12} = \left\{ \frac{A \exp(-k \Delta z)}{\Delta z} -  \frac{1}{\Delta z^3} [3 \cos \theta_1 \cos \theta_2 - (\vec{m}_1 \cdot \vec{m}_2)]\right\}
+E_{12} = \left\{ \frac{A \exp(-k \Delta z)}{\Delta z} -  \frac{1}{\Delta z^3} [3 \cos \theta_1 \cos \theta_2 - (\hat{m}_1 \cdot \hat{m}_2)]\right\}
 \end{equation}
-where $A$ and $k$ -- parameters which define repulsion hardness and coupling energy. Figures \ref{fig:energy_second_derivative} and \ref{fig:interaction_energy} show examples of $E_{12}$ for different parameters. \textcolor{red}{I'll redo the figures}
-
-\textcolor{red}{Should I elaborate here on the fact that for some K and A there is no attraction and all that stuff?}
+where $A$ and $k$ -- parameters which governs repulsion hardness and coupling energy. Figure \ref{fig:interaction_energy} show examples of $E_{12}$ for different parameters.
 
 \begin{figure}[h]
 \begin{subfigure}{\textwidth}
+\begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=.6\textwidth]{Enegy_r_difAK}
+	\includegraphics[width=.9\textwidth]{k=10}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=.9\textwidth]{A=1000}
+\end{subfigure}
 	\captionsetup{justification=centering, width=0.7\textwidth, singlelinecheck=false}
 	\caption{Particles dipole moments are both co-aligned with $z$ axis}
     \label{fig:interaction_energy_coaligned}
 \end{subfigure}
 
 \begin{subfigure}{\textwidth}
+\begin{subfigure}{.5\textwidth}
 	\centering
-	\includegraphics[width=.6\textwidth]{Enegy_r_difAK_perp}
+	\includegraphics[width=.9\textwidth]{k=10_perp}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+	\centering
+	\includegraphics[width=.9\textwidth]{A=1000_perp}
+\end{subfigure}
 	\captionsetup{justification=centering, width=0.7\textwidth, singlelinecheck=false}
 	\caption{First particle dipole moment is co-aligned and second particle dipole moment is perpendicular to $z$ axis}
     \label{fig:interaction_energy_counteraligned}
@@ -71,13 +81,15 @@ where $A$ and $k$ -- parameters which define repulsion hardness and coupling ene
 \label{fig:interaction_energy}
 \end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=.6\textwidth]{Energy_deriv2_r_difAK}
-	\captionsetup{justification=centering, width=0.8\textwidth}
-	\caption{Second derivative of interaction energy as function of distance between centres of two co-aligned particles ($\theta_1 = \theta_2 = 0$)}
-	\label{fig:energy_second_derivative}
-\end{figure}
+For the case when particles dipole moments are perpendicular to each other the interaction is purely repulsive. However, as we can see on the Figure \ref{fig:interaction_energy_coaligned}, for low values of $A$, combined with high values of $k$, we can observe purely attractive interaction. Since this behaviour is physically impossible, we assumed $A = 1000$ and $k = 10$.
+
+%\begin{figure}[h]
+%    \centering
+%	\includegraphics[width=.6\textwidth]{Energy_deriv2_r_difAK}
+%	\captionsetup{justification=centering, width=0.8\textwidth}
+%	\caption{Second derivative of interaction energy as function of distance between centres of two co-aligned particles ($\theta_1 = \theta_2 = 0$)}
+%	\label{fig:energy_second_derivative}
+%\end{figure}
 
 \section{Monte Carlo Simulations}
 
@@ -101,7 +113,7 @@ In our simulations we considered a density $\rho = 0.5$.
 
 Defining $\rho = \frac{N d}{L}$ where $N$ --- number of particles and $d$ --- particle diameter, we immediately obtain the simulation system size $L = \frac{Nd}{\rho}$.
 
-As diameter of a particle we have taken the position of the minimum of (\ref{eq_full_particle_particle_interraction}), obtained when particles dipole moments are co-aligned (see Figure\ref{fig:interaction_energy_coaligned}). \textcolor{red}{diameter calculated by newton method + checked - any displacement leads to function increase. Should I explain it? Not analytically because I'm better with computer than math. And I calculate it every run to get system size}
+As diameter of a particle we have taken the position of the minimum of (\ref{eq_full_particle_particle_interraction}), obtained when particles dipole moments are co-aligned (see Figure \ref{fig:interaction_energy_coaligned}). \textcolor{red}{diameter calculated by newton method + checked - any displacement leads to function increase. Should I explain it? Not analytically because I'm better with computer than math. And I calculate it every run to get system size}
 
 Important question is the length (number of test steps taken) of simulations (\textcolor{red}{Here will be order parameter as function of MonteCarlo sweeps picture? or how should I explain why I'm doing $10^8$ sweeps?}).
 
