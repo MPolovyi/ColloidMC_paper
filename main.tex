@@ -22,17 +22,17 @@ The particle-particle interaction consists of two contributions: a dipole-dipole
 
 The energy of dipole-dipole interaction is given by
 
-\label{eq_dipole_dipole_interaction}
+\label{eq:dipole_dipole_interaction}
 \begin{equation}
-E_{12} = - \frac{\mu_1 \mu_2}{\Delta r^3}[3 (\hat{m}_1 \cdot \hat{r}_{12})(\hat{m}_2 \cdot \hat{r}_{12}) - (\hat{m}_1 \cdot \hat{m}_2)]
+E^{dip}_{12} = - \frac{\mu_1 \mu_2}{\Delta r^3}[3 (\hat{m}_1 \cdot \hat{r}_{12})(\hat{m}_2 \cdot \hat{r}_{12}) - (\hat{m}_1 \cdot \hat{m}_2)]
 \end{equation}
 where $\mu_1 \hat{m}_1$ and $\mu_2 \hat{m}_2$ are dipole moments of interacting particles, $\vec{r}_{12}$ is the direction vector which connects particle centers, whereas $\Delta r$ stands for the distance between particle centers.
 
-By constraining particles in 1D tube we effectively enforce $\vec{r}_{12}$ to be co-aligned with $z$ axis. Defining energy in the units of particle dipole moment and assuming that all particles have the same dipole moment, (\ref{eq_dipole_dipole_interaction}) can be simplified in the following way:
+By constraining particles in 1D tube we effectively enforce $\vec{r}_{12}$ to be co-aligned with $z$ axis. Defining energy in the units of particle dipole moment and assuming that all particles have the same dipole moment, (\ref{eq:dipole_dipole_interaction}) can be simplified in the following way:
 
 \label{eq_dipole_dipole_1D}
 \begin{equation}
-E_{12}^{attr} = - \frac{1}{\Delta z^3} [3 \cos \theta_1 \cos \theta_2 - (\hat{m}_1 \cdot \hat{m}_2)]
+E_{12}^{dip} = - \frac{1}{\Delta z^3} [3 \cos \theta_1 \cos \theta_2 - (\hat{m}_1 \cdot \hat{m}_2)]
 \end{equation}
 where $\theta_1$ and $\theta_2$ are the angles between $z$ axis and dipole moments of the first and second particle respectfully, and $\Delta z = |z_2 - z_1|$, where $z_1$ and $z_2$ are displacements of particle centers along $z$ axis. Because of three-dimensionality of our model, we can't simplify the last term, which accounts for relative orientation of the particles.
 
@@ -42,7 +42,7 @@ The repulsive part is described by Yukawa potential
 E_{12}^{rep} = \frac{A \exp(-k \Delta z)}{\Delta z}
 \end{equation}
 Summarizing all of the above, the particle-particle interaction potential is presented in the following form:
-\label{eq_full_particle_particle_interraction}
+\label{eq:full_particle_particle_interraction}
 \begin{equation}
 E_{12} = \left\{ \frac{A \exp(-k \Delta z)}{\Delta z} -  \frac{1}{\Delta z^3} [3 \cos \theta_1 \cos \theta_2 - (\hat{m}_1 \cdot \hat{m}_2)]\right\}
 \end{equation}
@@ -97,7 +97,7 @@ At first we concentrate on the equilibrium state of the system. For that purpose
 
 Every test step we choose a particle at random. Than we subject the particle to the \emph{test move} and \emph{test rotation}.
 
-\emph{Test move} is a particle displacement ($z_{t+1} = z_t + \delta z$), where $\delta z$ is a random value evenly distributed in $[+\eta, -\eta]$, with $\eta = 0.5 (\Delta z_{min} - \Delta z_0)$. Here $\Delta z_{min}$ is distance between two particles with co-aligned dipole moments on which the attraction is maximal (eq. \ref{eq_full_particle_particle_interraction}. takes it's minimal value), and $\Delta z_0$ is the maximal distance on which the aforementioned pair of particles interacts with zero energy \textcolor{red}{is it sounds clear, or not?}.
+\emph{Test move} is a particle displacement ($z_{t+1} = z_t + \delta z$), where $\delta z$ is a random value evenly distributed in $[+\eta, -\eta]$, with $\eta = 0.5 (\Delta z_{min} - \Delta z_0)$. Here $\Delta z_{min}$ is distance between two particles with co-aligned dipole moments on which the attraction is maximal (eq. \ref{eq:full_particle_particle_interraction}. takes it's minimal value), and $\Delta z_0$ is the maximal distance on which the aforementioned pair of particles interacts with zero energy \textcolor{red}{is it sounds clear, or not?}.
 
 \emph{Test rotation} consists of generating new orientation of the particle at random, evenly distributed over all orientation space.
 
@@ -109,7 +109,7 @@ On each end of the system we implement continuous border conditions.
 
 \section{Production runs and results}
 
-Defining $\rho = \frac{N D}{L}$ where $N$ --- number of particles and $D = \Delta z_{min}$ --- particle diameter, we immediately obtain the simulation system size $L = \frac{N D}{\rho}$. In our simulations we considered a moderate density $\rho = 0.5$.
+Defining $\rho = \frac{N D}{L}$ where $N$ --- number of particles and $D = \Delta z_{min}$ --- particle diameter, we immediately obtain the simulation system size $L = \frac{N D}{\rho}$. In our simulations we considered a moderate density $\rho = 0.25$.
 
 \textcolor{red}{diameter calculated by newton method + checked - any displacement leads to function increase. Should I explain it? Not analytically because I'm better with computer than math. And I calculate it every run to get system size}
 
@@ -137,6 +137,85 @@ And particle chains length probability distribution \textcolor{red}{How to call 
 \end{equation}
 
 Second check enforces bonded particles to have same sign of projection of the dipole moment vector on the spatial axis. As we will show in the \textcolor{red}{Results} section, this is unnecessary, since on the equilibrium chained (by distance) particles tend to have the same orientation.
+
+\newpage
+\section{Langevin Dynamics}
+
+\label{Langevin equation}
+
+\label{eq:Langevin_theory}
+\begin{equation}
+\begin{cases}
+	\dot{r} &= v
+	m \dot{v} &= f(r, t) - \alpha_{tr} v + \beta_{tr}(t)
+\end{cases}
+\end{equation}
+Here subscript $tr$ stands for translation. $\alpha_{tr} = m / \tau_t$ --- is damping coefficient related with a drag force induced by a medium, and $f(r, t)$ is particle-particle force. $\beta$ is a stochastic force, and in order to satisfy dissipation-fluctuation theorem, it is assumed to be Gausian-distributed, and have statistical properties
+\begin{equation}
+<\beta(t)> = 0,
+\end{equation}
+\begin{equation}
+<\beta(t)\beta(t')> = 2 \alpha_{tr} k_B T\delta(t - t')
+\end{equation}
+
+For the rotational dynamics the form of equations remains unchanged, but one have to do a direct substitution of 
+\begin{equation}
+	\begin{cases}
+		r &-> \phy,
+		v &-> \omega
+		m &-> I
+		\f(r, t) &-> \tau(r, t)
+	\end{cases}
+\end{equation}
+where $\phy$ is particle orientation, $\omega$ is angular velocity, $I$ is inertia and $\tau$ is torque exerted on a particle.
+
+\subsection{Statistical properties}
+
+The most important property of colloid suspension are translational and rotational diffusion coefficients. The former is given by
+
+\subsection{Integration method}
+
+First we need to define damping time $\tau$, which determines how rapidly temperature is relaxed, and for translational motion it is given by
+\label{eq:Translation_damping_time}
+\begin{equation}
+\tau_{tr} = \frac{m}{6 \pi \eta R}
+\end{equation}
+where $m$ is particle mass, $\eta$ is viscosity and $R$ is particle radius. For rotation $\tau_{tr} / \tau{rot} = 10/3$, which can be obtained from 
+
+The Langevin equations of motion for a particle are as follows
+
+\subsection{Interactions}
+
+For the MD simulations we used following equations:
+
+\textcolor{red}{The energy and the field have same letters, what is standard practice to name field and energy?}
+\label{eq:dipole_field}
+\begin{equation}
+E_d = \frac{\mu}{r^3} \left(3 (\hat{\mu} \cdot \hat{r}) \hat{r} - \hat{\mu} \right)
+\end{equation}
+where $\mu$ is dipole moment of a particle producing field, and $r$ is distance to the point of measurement.
+
+The dipole-dipole interaction energy \ref{eq:dipole_dipole_interaction} can be expressed
+\label{eq:dipole_energy_from_potential}
+\begin{equation}
+E^{dip}_{12} = -(\mu_1 \cdot E_{d_2})
+\end{equation}
+
+Full force acting on a particle is
+\label{eq:full_force}
+\begin{equation}
+\vec{F} = \frac{\delta E_{12}}{\delta \vec{r}} = \hat{r} \frac{exp(-k r)}{r^4}(3 D exp(k r) - A r^2 (k r +1)
+\end{equation}
+where $D = 3 \cos \theta_1 \cos \theta_2 - (\hat{m}_1 \cdot \hat{m}_2)$ stands for orientational part of dipole moment. $\vec{r}$ is distance from other particle to one on which the force applies. The other parameters are the same as in eq. \ref{eq:full_particle_particle_interraction}
+
+The torque on a particle arises only due to dipole-dipole interaction. Therefore it is calculated as
+\label{eq:dipole_torque}
+\begin{equation}
+\tau  = \mu[\hat{\mu} \times E_d ]
+\end{equation}
+where $\vec{\mu}$ is dipole moment of particle on which torque acts, and $\E_d$ is dipole field produced by acting particle.
+
+
 
 \cite{Camp2000}
 

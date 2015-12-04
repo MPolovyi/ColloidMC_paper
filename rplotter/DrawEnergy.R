@@ -8,6 +8,7 @@ rad <- function(degree){
 }
 
 colors <- c("red", "green", "blue", "orange", "blueviolet")
+
 setEPS()
 postscript(file = "~/Documents/ColloidMC_texts/k=10_perp.eps",
     width = 5.5, height = 5, 
