@@ -1,0 +1,47 @@
+%!TEX root = ..\main.tex
+\section{Production runs and results}
+\subsection{Simulation specifics}
+
+Defining $\rho = \frac{N D}{L}$ where $N$ --- number of particles and $D = \Delta z_{min}$ --- particle diameter, we immediately obtain the simulation system size $L = N D/ \rho$. In our simulations we considered three cases of different densities $\rho = (0.25,\ 0.5,\ 1)$.
+
+\textcolor{red}{diameter calculated numerically minimized function. Should I explain it? Not analytically because I'm better with computer than math. And I calculate it every run to get system size}
+
+To check for existence of \textcolor{red}{boundary effects}, for each value of density we perform simulations with particle counts $N = (500,\ 5000)$.
+
+The simulations were allowed to equilibrate for $EQ = 5 \cdot 10^5$ cycles (one cycle consists of $N$ Monte-Carlo test steps), and after that every $EQ$ cycles were generated ensemble-averaged quantities. Totally we limit simulations to $11\cdot EQ$ --- that way each simulation run gives us $10$ (uncorrelated) ensemble-averaged values for observing quantities. That value for $EQ$ was chosen because for any combination of simulation parameters the order parameter reaches stable state within allocated number of cycles (see fig. \ref{fig:nematic_op_vs_MC_cycles})
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Images/dummy.png}
+	\captionsetup{justification=centering, width=0.9\textwidth}
+	\caption{Order parameter defined by eq. \eqref{eq:nematic_order_parameter} versus Monte-Carlo test steps taken by system for different $\epsilon^*$ and $N$}
+	\label{fig:nematic_op_vs_MC_cycles}
+\end{figure}
+
+We concentrate on the following quantities.
+
+Nematic order parameter $S$ defined in standard way:
+\begin{equation}
+\label{eq:nematic_order_parameter}
+	S = \frac{3 \overline{\cos^2 \theta} - 1}{2}
+\end{equation}
+where $\theta$ it the angle between particle dipole moment and spatial axis, while horizontal bar denotes ensemble average.
+
+Since the order parameter \eqref{eq:nematic_order_parameter} does not distinguish orientation along and against spatial axis, and therefore says nothing about correlation between different particle orientations, we define correlation length, i.e. orientation correlation as function of distance between particles:
+\begin{equation}
+	C = \langle\cos \theta_1 \cos \theta_2\rangle \propto |\Delta z|
+\end{equation}
+where $\theta_1$ and $\theta_2$ are angles between spatial axis and dipole moments of particles which centers are separated by $\Delta z$ distance.
+
+\textcolor{red}{I'm not particularly certain that this is valuable quantity}
+And particle chains length probability distribution \textcolor{red}{How to call it??}. One can think of different ways to define it, but the simplest is the following: two particles considered to be "chained" if 
+\begin{equation}
+\begin{cases}
+	|z_1 - z_2| &\leq d \\
+	\cos \theta_1 \cdot \cos \theta_2 &\geq 0
+\end{cases}
+\end{equation}
+
+Second check enforces bonded particles to have same sign of projection of the dipole moment vector on the spatial axis. As we will show in the \textcolor{red}{Results} section, this is unnecessary, since on the equilibrium chained (by distance) particles tend to have the same orientation.
+
+\subsection{Obtained results}
