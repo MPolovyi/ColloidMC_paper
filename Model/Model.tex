@@ -1,45 +1,63 @@
 %!TEX root = ..\main.tex
 \section{Model}
 \label{sec:model}
-We consider colloidal particles with a permanent dipole moment $\mu \hat{m}$, where $\hat{m}$ is is a unitary vector with the direction of the dipole moment. While considering a three-dimensional system, we constrain particle movements to a one-dimensional line, i.e. particles are confined to the $z$ axis. However, particles can explore the full three dimensional orientation space. \textcolor{red}{um, I thougth that $z$ axis is a definition in itself? Just in case, how do I define it?}
 
-The particle-particle interaction consists of two contributions: a dipole-dipole interaction and a short-range repulsion.
+\begin{figure*}[t]
+\centering
+	\includegraphics[width=0.9\textwidth]{Images/fullSystemPicture}
+	\captionsetup{justification=centering, width=0.9\textwidth}
+	\caption{Snapshot of for density $\rho = 0.95$ and $k_BT = 1.5$ \textcolor{red}{It's just computer units. To go to real units, I have to define my particle interactions in real units, and then look at the relation between potential and kinetic energy?}. Arrows represent the dipole moment of the particle. System sample obtained by means of Langevin dynamics simulation. The simulation has run until $t = 100$, fluid medium viscosity $\eta = 1$ and particle mass $m = 1$. \textcolor{red}{What do you mean by when? December 20, i think.}}
+	\label{fig:fullSystemPicture}
+\end{figure*}
 
-The energy of dipole-dipole interaction is given by
+We consider colloidal particles with a permanent dipole moment $\mu \hat{m}$, where $\hat{m}$ is a unitary vector with the direction of the dipole moment. While considering a three-dimensional system, we constrain particle translational motion to a one-dimensional line, i.e. particles are confined to the $z$ axis. However, particles can explore the full three dimensional orientation space. Example of particle positions and orientations is given at \figref{fig:fullSystemPicture}.
+
+The particle-particle interaction is described as the superposition of two contributions: a dipole-dipole interaction and a short-range repulsion.
+
+The energy of dipole-dipole interaction for any pair (i, j) of particles is given by
 
 \begin{equation}
 \label{eq:dipole_dipole_interaction}
-E^{dip}_{12} = - \frac{\mu_1 \mu_2}{\Delta r^3}[3 (\hat{m}_1 \cdot \hat{r}_{12})(\hat{m}_2 \cdot \hat{r}_{12}) - (\hat{m}_1 \cdot \hat{m}_2)]
+U^{dip}_{ij} =
+	- \frac{\mu_i \mu_j}{\Delta r^3}[
+		3 (\hat{m}_i \cdot \hat{r}_{ij})(\hat{m}_j \cdot \hat{r}_{ij})
+		- (\hat{m}_i \cdot \hat{m}_j)
+	]
 \end{equation}
-where $\mu_1 \hat{m}_1$ and $\mu_2 \hat{m}_2$ are dipole moments of interacting particles, $\vec{r}_{12}$ is the direction vector which connects particle centers, whereas $\Delta r$ stands for the distance between particle centers.
+where $\mu_i \hat{m}_i$ and $\mu_j \hat{m}_j$ are dipole moments of interacting particles, $\vec{r}_{ij}$ is the direction vector which connects particle centers, and $\Delta r$ is the absolute value of the distance between particle centers.
 
-By constraining particles in 1D tube we effectively enforce $\vec{r}_{12}$ to be co-aligned with $z$ axis. Defining energy in the units of particle dipole moment and assuming that all particles have the same dipole moment, (\ref{eq:dipole_dipole_interaction}) can be simplified in the following way:
+By constraining particles to a 1D tube we effectively enforce $\vec{r}_{ij}$ to be co-aligned with $z$ axis. Assuming that all particles have the same dipole moment $\mu_i = \mu_j = \mu$, and defining $\mu = 1$ \textcolor{red}{meaning that the dipole moment is in units of "particle dipole moment"}, (\ref{eq:dipole_dipole_interaction}) can be simplified as:
 
 \begin{equation}
-\label{eq_dipole_dipole_1D}
-E_{12}^{dip} = - \frac{1}{\Delta z^3} [3 \cos \theta_1 \cos \theta_2 - (\hat{m}_1 \cdot \hat{m}_2)]
+\label{eq:dipole_dipole_1D}
+E_{ij}^{dip} = - \frac{1}{\Delta z^3} [3 \cos \theta_i \cos \theta_j - (\hat{m}_i \cdot \hat{m}_j)]
 \end{equation}
-where $\theta_1$ and $\theta_2$ are the angles between $z$ axis and dipole moments of the first and second particle respectfully, and $\Delta z = |z_2 - z_1|$, where $z_1$ and $z_2$ are displacements of particle centers along $z$ axis. Because of three-dimensionality of our model, we can't simplify the last term, which accounts for relative orientation of the particles.
+where $\theta_i$ and $\theta_j$ are the angles between $z$ axis and dipole moments of the first and second particle respectively, and $\Delta z = |z_j - z_i|$, where $z_i$ and $z_j$ are particle positions along $z$ axis.
 
 The repulsive part is described by Yukawa potential
 \begin{equation}
-\label{eq_yukawa_interaction}
-E_{12}^{rep} = \frac{A \exp(-k \Delta z)}{\Delta z}
+\label{eq:yukawa_interaction}
+E_{ij}^{rep} = \frac{A \exp(-k \Delta z)}{\Delta z}
 \end{equation}
-Summarizing all of the above, the particle-particle interaction potential is presented in the following form:
-\begin{equation}
-\label{eq:full_particle_particle_interraction}
-E_{12} = \left\{ \frac{A \exp(-k \Delta z)}{\Delta z} -  \frac{1}{\Delta z^3} [3 \cos \theta_1 \cos \theta_2 - (\hat{m}_1 \cdot \hat{m}_2)]\right\}
-\end{equation}
-where $A$ and $k$ -- parameters which governs repulsion hardness and coupling energy. Figure \ref{fig:interaction_energy} show examples of $E_{12}$ for different parameters.
+where $A$ and $k^{-1}$ --- are the strength and range of interaction. \figref{fig:interaction_energy} show examples of $E_{ij}$ for different parameters.
 
-%\begin{figure}[h]
+\begin{figure}[p]
+\centering
+	\includegraphics[width=0.9\textwidth]{Images/particle_interaction_potential}
+\captionsetup{justification=centering, width=0.9\textwidth}
+\caption{Potential energy as function of distance between centres of two interacting particles for co-aligned (top) and perpendicular (bottom) orientation of the particles dipole moments. Left plots show energy for the fixed value of $k = 10$, and right for the fixed value of $A = 1000$}
+\label{fig:interaction_energy}
+\end{figure}
+
+%\begin{figure}[p]
+%\centering
 %\begin{subfigure}{\textwidth}
-%\begin{subfigure}{.5\textwidth}
+%\centering
+%\begin{subfigure}{.45\textwidth}
 %	\centering
 %	\includegraphics[width=\textwidth]{Images/k=10}
 %\end{subfigure}
-%\begin{subfigure}{.5\textwidth}
+%\begin{subfigure}{.45\textwidth}
 %	\centering
 %	\includegraphics[width=\textwidth]{Images/A=1000}
 %\end{subfigure}
@@ -48,11 +66,12 @@ where $A$ and $k$ -- parameters which governs repulsion hardness and coupling en
 %    \label{fig:interaction_energy_coaligned}
 %\end{subfigure}
 %\begin{subfigure}{\textwidth}
-%\begin{subfigure}{.5\textwidth}
+%\centering
+%\begin{subfigure}{.45\textwidth}
 %	\centering
 %	\includegraphics[width=\textwidth]{Images/k=10_perp}
 %\end{subfigure}
-%\begin{subfigure}{.5\textwidth}
+%\begin{subfigure}{.45\textwidth}
 %	\centering
 %	\includegraphics[width=\textwidth]{Images/A=1000_perp}
 %\end{subfigure}
@@ -65,12 +84,4 @@ where $A$ and $k$ -- parameters which governs repulsion hardness and coupling en
 %\label{fig:interaction_energy}
 %\end{figure}
 
-For the case when particles dipole moments are perpendicular to each other the interaction is purely repulsive. However, as we can see on the Figure \ref{fig:interaction_energy_coaligned}, for low values of $A$, combined with high values of $k$, we can observe purely attractive interaction. Since this produce physically uninteresting behaviour, we assumed $A = 1000$ and $k = 10$, the case where interaction energy have well-defined minimum and maximum.
-
-%\begin{figure}[h]
-%    \centering
-%	\includegraphics[width=.6\textwidth]{Energy_deriv2_r_difAK}
-%	\captionsetup{justification=centering, width=0.8\textwidth}
-%	\caption{Second derivative of interaction energy as function of distance between centres of two co-aligned particles ($\theta_1 = \theta_2 = 0$)}
-%	\label{fig:energy_second_derivative}
-%\end{figure}
+When the dipole moments are perpendicular to each other the interaction is purely repulsive. However, as we can see on the \figref{fig:interaction_energy}(a) and \figref{fig:interaction_energy}(b), for low values of $A$ ($A = 100$), combined with high values of $k$ ($k = 10$), we can observe purely attractive interaction \textcolor{red}{The violet curve with diagonal crosses on the \figref{fig:interaction_energy}, it doesn't go up after it went down. So it's purely attractive}. Since in that case all particles will coalesce in one point, we assumed $A = 1000$ and $k = 10$, the case where interaction energy have well-defined minimum and maximum.

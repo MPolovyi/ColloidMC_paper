@@ -1,21 +1,9 @@
-%!TEX root = ..\main.tex
 \section{Monte Carlo Simulations}
 
-At first we concentrate on the equilibrium state of the system. For that purpose we implement a common MC algorithm in a following way.
+We first study the equilibrium properties by means of Monte Carlo simulations.
 
-Every test step we choose a particle at random. Than we subject the particle to the \emph{test move} and \emph{test rotation}.
+At every Monte Carlo step we choose one particle at random and attempt first a translational and then a rotational move. In the translational move a particle is displaced along the z-axis ($z_{t+1} = z_t + \delta z$), where $\delta z$ is a random value uniformly distributed in the range $[+\eta, -\eta]$, with $\eta = 0.5 (\Delta z_{min} - \Delta z_0)$. Here $\Delta z_{min}$ is distance between two particles with co-aligned dipole moments on which the potential energy is minimal, and $\Delta z_0$ is the distance where potential energy becomes zero if we decrease distance starting from $\Delta z_{min}$ \textcolor{red}{In other words, we finding the minima, then we are moving to the left from minima, and as soon as energy becomes zero or above, we say that it's $\Delta z_0$. Off course I'm solving the equation numerically in the code, but it's the easiest way to explain I can come up with}. For the rotational move a new orientation is chosen uniformly at random. A move is accepted with probability $ \mathrm{min} \left\{1, \, \exp(\epsilon^*\Delta E) \right\}$, where $\eta$ is a random number uniformly-distributed in $[0, 1)$, $\Delta E$ is change in system potential energy due to test step (rotation and translation), and $\epsilon^* = \epsilon/k_B T$.
 
-\emph{Test move} is a particle displacement ($z_{t+1} = z_t + \delta z$), where $\delta z$ is a random value evenly distributed in $[+\eta, -\eta]$, with $\eta = 0.5 (\Delta z_{min} - \Delta z_0)$. Here $\Delta z_{min}$ is distance between two particles with co-aligned dipole moments on which the potential energy is minimal (eq. \eqref{eq:full_particle_particle_interraction} takes it's minimal value), and $\Delta z_0$ is the farthest distance between two co-aligned particles where potential energy is zero \textcolor{red}{is it sounds clear, or not?}.
+For the sake of simplicity we restrict interactions to the two closest neighbors.
 
-\emph{Test rotation} consists of generating new orientation of the particle at random, evenly distributed over all orientation space.
-
-After move and rotation test step is evaluated with standard Metropolis acceptance criteria. The move is accepted if
-\begin{equation}
-\label{eq:metropolis_acceptance}
-	\eta \leq \exp(\epsilon^* \Delta E)
-\end{equation}
-where $\eta$ is a random number uniformly-distributed in $[0, 1)$, $\Delta E$ is change in system potential energy due to test step (rotation and translation), and $\epsilon^* = 1/k_B T$.
-
-For the sake of simplicity we restrict interactions to the immediate neighbours (particle $i$ interacts only with $i-1$ and $i+1$ particles) 
-
-On each end of the system we implement continuous border conditions.
+We considered periodic boundary conditions.

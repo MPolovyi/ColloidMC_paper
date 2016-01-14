@@ -9,132 +9,98 @@ rad <- function(degree){
 
 colors <- c("red", "green", "blue", "orange", "blueviolet")
 
+addLines <- function( A_, k_, color_, theta1_, theta2_, delta_ ){
+  lines(
+    seq(0, 2, length = 1000),
+    E(rad(theta1_), rad(theta2_), rad(delta_), seq(0, 2, length = 1000), A_, k_),
+    col = colors[color_] , lwd = 2)
+  
+  points(
+    seq(0, 2, length = 20),
+    E(rad(theta1_), rad(theta2_), rad(delta_), seq(0, 2, length = 20), A_, k_),
+    pch = color_-1, col = colors[color_], lwd = 2)
+}
+
 setEPS()
-postscript(file = "~/Documents/ColloidMC_texts/k=10_perp.eps",
-    width = 5.5, height = 5, 
+postscript(file = "~/Documents/ColloidMC_texts/Images/particle_interaction_potential.eps",
+    width = 9, height = 7, 
     bg = "white")
 
-A <- 1000
-k <- 10
-color <- colors[1]
-plot(seq(0, 2, length=20),
-     E(rad(0), rad(90), rad(90), seq(0, 2, length=20), A, k),
-     ylim=c(-1, 5),
-     xlim=c(0.3, 2),
-     lwd=2,
-     col=color,
-     xaxs='i',
-     cex.axis=1.8,
-     cex = 2,
-     lty=0,
-     ann = F)
+A_toPlot <- c(1000, 800, 500, 300, 100)
+k_toPlot <- c(3, 5, 8, 10, 1000)
 
-mtext(side = 2, text = latex2exp('$E_{12}$'), line = 2.5, cex = 1.8)
-mtext(side = 1, text = latex2exp('$\\Delta z$'), line = 2.5, cex = 1.8)
+par(mfrow = c(2, 2))
+par(cex = 1.5)
+par(mar = c(0, 0, 0, 0), oma = c(2, 2, 0.6, 0.6))
+par(xpd=F)
+par(ann = F)
 
-lines(seq(0, 2, length=1000),
-      E(rad(0), rad(90), rad(90), seq(0, 2, length=1000), A, k),
-      col=color,
-      type = "l", lwd = 2)
+xlim_ <- c(0, 2)
+ylim_ <- c(-10, 10)
 
-A <- 800
-k <- 10
-color <- colors[2]
-pc <- 2
-lines(seq(0, 2, length=20),
-     E(rad(0), rad(90), rad(90), seq(0, 2, length=20), A, k),
-     ylim=c(-1, 5),
-     xlim=c(0.3, 2),
-     lwd=2,
-     col=color,
-     type='o',
-     pch=pc,
-     xaxs='i',
-     cex = 1.8,
-     lty=0,
-     ylab=latex2exp('$E_{12}$'),
-     xlab=latex2exp('$\\Delta z$'))
+plot(NULL, NULL, ylim = ylim_, xlim = xlim_, xaxs = "i", axes = F)
+axis(2, pos = 0.07, col = 0, at = c(-10, -5, 0, 5, 10))
+axis(2, labels = F, at = c(-10, -5, 0, 5, 10))
+axis(1, at = c(-100, 100))
+axis(2, at = c(-100, 100))
+axis(3, at = c(-100, 100))
+axis(4, at = c(-100, 100))
+mtext("(a)", side = 3, line = -1.1, cex = 1.8, adj = 0.95)
 
-lines(seq(0, 2, length=1000),
-      E(rad(0), rad(90), rad(90), seq(0, 2, length=1000), A, k),
-      col=color,
-      type = "l", lwd = 2)
+for(i in seq_along(A_toPlot)){
+  addLines(A_toPlot[i], 10, i, 0, 0, 0)
+}
 
-A <- 500
-k <- 10
-color <- colors[3]
-pc <- 3
-lines(seq(0, 2, length=20),
-     E(rad(0), rad(90), rad(90), seq(0, 2, length=20), A, k),
-     ylim=c(-1, 5),
-     xlim=c(0.3, 2),
-     lwd=2,
-     col=color,
-     type='o',
-     pch=pc,
-     xaxs='i',
-     cex = 1.8,
-     lty=0,
-     ylab=latex2exp('$E_{12}$'),
-     xlab=latex2exp('$\\Delta z$'))
+plot(NULL, NULL, ylim = ylim_, xlim = xlim_, xaxs = "i", axes = F)
+axis(1, at = c(-100, 100))
+axis(3, at = c(-100, 100))
+axis(4, at = c(-100, 100))
+mtext("(b)", side = 3, line = -1.1, cex = 1.8, adj = 0.95)
 
-lines(seq(0, 2, length=1000),
-      E(rad(0), rad(90), rad(90), seq(0, 2, length=1000), A, k),
-      col=color,
-      type = "l", lwd = 2)
+for(i in seq_along(k_toPlot)){
+  addLines(1000, k_toPlot[i], i, 0, 0, 0)
+}
 
-A <- 300
-k <- 10
-color <- colors[4]
-pc <- 4
-lines(seq(0, 2, length=20),
-     E(rad(0), rad(90), rad(90), seq(0, 2, length=20), A, k),
-     ylim=c(-1, 5),
-     xlim=c(0.3, 2),
-     lwd=2,
-     col=color,
-     type='o',
-     pch=pc,
-     xaxs='i',
-     cex = 1.8,
-     lty=0,
-     ylab=latex2exp('$E_{12}$'),
-     xlab=latex2exp('$\\Delta z$'))
+xlim_ <- c(0, 2)
+ylim_ <- c(0, 5)
 
-lines(seq(0, 2, length=1000),
-      E(rad(0), rad(90), rad(90), seq(0, 2, length=1000), A, k),
-      col=color,
-      type = "l", lwd = 2)
+plot(NULL, NULL, ylim = ylim_, xlim = xlim_, xaxs = "i", axes = F)
+axis(1, pos = 0.2, col = 0, at = c(0, 0.5, 1, 1.5))
+axis(2, pos = 0.07, col = 0, at = seq(0, 4))
 
-A <- 100
-k <- 10
-color <- colors[5]
-pc <- 5
-lines(seq(0, 2, length=20),
-     E(rad(0), rad(90), rad(90), seq(0, 2, length=20), A, k),
-     ylim=c(-1, 5),
-     xlim=c(0.3, 2),
-     lwd=2,
-     col=color,
-     type='o',
-     cex = 1.8,
-     pch=pc,
-     xaxs='i',
-     lty=0
-     )
+legend("topright",
+       legend = sprintf("A = %1i", A_toPlot),
+       col = colors,
+       pch = seq_along(k_toPlot)-1, bty = "n", lwd = 2, lty = 0, inset = c(0, 0.15))
 
-lines(seq(0, 2, length=1000),
-      E(rad(0), rad(90), rad(90), seq(0, 2, length=1000), A, k),
-      col=color,
-      type = "l", lwd = 2)
+axis(1, labels = F, at = c(0, 0.5, 1, 1.5))
+axis(2, labels = F, at = seq(0, 4))
+axis(1, labels = F, tick = F, at = c(1.5, 2))
+axis(1, at = c(-100, 100))
+axis(2, at = c(-100, 100))
+axis(4, at = c(-100, 100))
+mtext("(c)", side = 3, line = -1.1, cex = 1.8, adj = 0.95)
 
-legend(
-  x=1.25,
-  y=5,
-  legend = c("A = 1000", "A = 800", "A = 500", "A = 300", "A = 100"),
-  col = colors,
-  lwd = c(2, 2, 2, 2, 2),
-  pch = c(0, 2, 3, 4, 5)
-)
+for(i in seq_along(A_toPlot)){
+  addLines(A_toPlot[i], 10, i, 90, 0, 90)
+}
+
+plot(NULL, NULL, ylim = ylim_, xlim = xlim_, xaxs = "i", axes = F)
+axis(1, pos = 0.2, col = 0, at = c(0, 0.5, 1, 1.5, 2))
+
+legend("bottomleft",
+       legend = sprintf("k = %1i", k_toPlot),
+       col = colors,
+       pch = seq_along(k_toPlot)-1, inset = c(-0.02, -0.03), bty = "n", lwd = 2, lty = 0)
+
+for(i in seq_along(k_toPlot)){
+  addLines(1000, k_toPlot[i], i, 90, 0, 90)
+}
+
+axis(1, labels = F, at = c(0, 0.5, 1, 1.5, 2))
+axis(1, at = c(-100, 100))
+axis(2, at = c(-100, 100))
+axis(4, at = c(-100, 100))
+mtext("(d)", side = 3, line = -1.1, cex = 1.8, adj = 0.95)
 
 dev.off()

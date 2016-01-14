@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[export]{adjustbox}
 \usepackage{amsmath}
@@ -9,25 +9,31 @@
 \usepackage{subcaption}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 
-\newcommand{\frc}[2]{\raisebox{2pt}{$#1$}\big/\raisebox{-3pt}{$#2$}}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\figref}[1]{Figure~\ref{#1}}
 
 \author{Maksym Polovyi}
 \title{Colloid MC}
 \begin{document}
 
 \input{Model/Model}
-\input{MC/MC_sim}
-\input{MC/MC_results}
 
 \newpage
+\input{MC/MC_sim}
+
 \input{LD/LD_sim}
 
 \newpage
+\input{Results/Results}
+\input{Results/MC_Results}
+%\input{Results/LD_Results}
+
+\newpage
 \input{App/quaternions}
+%\input{App/random}
 
-\cite{Camp2000}
-
+\newpage
 \bibliographystyle{plain}
 \bibliography{Bibliography}
 \end{document}
