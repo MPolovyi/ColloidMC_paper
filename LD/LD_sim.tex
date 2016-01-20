@@ -203,7 +203,7 @@ When calculating RMSD we have to account for the fact that rotations on angle $
 					- \Delta \vec{u}(t)
 			\right|^2
 \end{equation}
-here the $\delta t$ is integration time step, or any other time scale over which the particle will not rotate on more than $2 \pi$ radians.\textcolor{red}{If particle can rotate on more than $2 \pi$ within one time step then that time step is too big}
+here the $\delta t$ goes from zero to $\Delta t$ in steps equal to integration time step, or any other time scale over which the particle will not rotate on more than $2 \pi$ radians.\textcolor{red}{If particle can rotate on more than $2 \pi$ within one time step then that time step is too big}
 
 The results of test simulation of non-interacting spheres is shown on \figref{fig:diffusion_stats_mean_square_displacement}. As expected, $\langle r^2\rangle$ is proportional to $2 \tau_t t$, and $\langle \phi_i^2\rangle$ are proportional to $2 \tau_r t = (3/10) 2 \tau_t t$. Here $\tau_t$ is translational damping time defined in eq.~\eqref{eq:Translation_damping_time}, and $t$ is simulation time.
 

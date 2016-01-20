@@ -1,14 +1,16 @@
 \subsection{Equilibrium results}
 \label{subsec:monte_carlo_results}
-First we look into temperature dependence of order parameter~\eqref{eq:nematic_order_parameter} at equilibrium for different system parameters. As we can see on the Fugure~\ref{fig:op_kbt}, the nematic order grows with decrease of the thermodynamics temperature or with increasing of system density. Black color shows results for $N = 800$ and red color for $N = 1600$ particles. There is no systematic scaling with system size. The results are average over $200$ samples.
+First we look into relation between order parameter~\eqref{eq:nematic_order_parameter} and $k_BT$ at equilibrium for different system densities. As we can see on the Figure~\ref{fig:op_kbt}, the nematic order increases with decrease of $k_BT$. Important to observer rapid increase in order parameter. The region of rapid increase shifts with densities, and for high density the relation between order parameter and $k_BT$ approaches linear. Black color shows results for $N = 1600$ and red color for $N = 3200$ particles. As we can see there is no systematic scaling with system size. The results are average over $500$ samples.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Images/op_vs_kbt_MC}
+	\includegraphics[width=0.5\textwidth]{Images/op_vs_kbt_MC.png}
 	\captionsetup{justification=centering, width=0.9\columnwidth}
-	\caption{Order parameter defined by eq.~\eqref{eq:nematic_order_parameter} versus $k_BT$ for Monte-Carlo simulations. RED shows results for $N = 1600$, and BLACK shows results for $N = 800$. The results are average over $200$ samples as described in sec.~\ref{subsec:simulation_details}}
+	\caption{Order parameter defined by eq.~\eqref{eq:nematic_order_parameter} versus $k_BT$ for Monte-Carlo simulations. RED shows results for $N = 3200$, and BLACK shows results for $N = 1600$. The results are average over $500$ samples \textcolor{red}{replace} as described in sec.~\ref{subsec:simulation_details}}
 	\label{fig:op_kbt}
 \end{figure}
+
+Growth of order parameter with decrease of temperature may imply structural changes in observed system. To investigate that, we first calculate the probability of having two chains pointing in the same direction (along or counter $z$ axis) or in opposite directions for different $k_BT$.
 
 Next we look into orientation correlation at equilibrium. On the \figref{fig:correlation_equilibrium} we can see that for all values of $k_BT$ the correlations decay exponentially. The factor of the exponent grows with density, as shown on sub-figures. The simulations were done for $N = 1600$ particles, and the results are averaged over $200$ samples.
 

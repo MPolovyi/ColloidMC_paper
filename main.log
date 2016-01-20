@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.5)  18 JAN 2016 02:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.5)  20 JAN 2016 10:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -662,9 +662,93 @@ Package pdftex.def Info: Images/DiffusionStats_norm-eps-converted-to.pdf used o
 n input line 272.
 (pdftex.def)             Requested size: 217.66211pt x 197.87746pt.
 ) [7 <./Images/DiffusionStats_mb-eps-converted-to.pdf> <./Images/DiffusionStats
-_norm-eps-converted-to.pdf>] (./Results/Results.tex) (./Results/LD_Results.tex 
+_norm-eps-converted-to.pdf>] (./Results/Results.tex) (./Results/MC_Results.tex 
 [8]
-<Images/op_relaxation_long_rho_05.png, id=86, 890.32625pt x 584.1825pt>
+<Images/op_vs_kbt_MC.png, id=86, 890.32625pt x 584.1825pt>
+File: Images/op_vs_kbt_MC.png Graphic file (type png)
+
+<use Images/op_vs_kbt_MC.png>
+Package pdftex.def Info: Images/op_vs_kbt_MC.png used on input line 7.
+(pdftex.def)             Requested size: 241.84843pt x 158.68517pt.
+Package epstopdf Info: Source file: <Images/correlations_025.eps>
+(epstopdf)                    date: 2016-01-08 17:07:37
+(epstopdf)                    size: 84967 bytes
+(epstopdf)             Output file: <Images/correlations_025-eps-converted-to.p
+df>
+(epstopdf)                    date: 2016-01-13 19:29:56
+(epstopdf)                    size: 44290 bytes
+(epstopdf)             Command: <repstopdf --outfile=Images/correlations_025-ep
+s-converted-to.pdf Images/correlations_025.eps>
+(epstopdf)             \includegraphics on input line 21.
+Package epstopdf Info: Output file is already uptodate.
+
+<Images/correlations_025-eps-converted-to.pdf, id=87, 722.7pt x 361.35pt>
+File: Images/correlations_025-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Images/correlations_025-eps-converted-to.pdf>
+Package pdftex.def Info: Images/correlations_025-eps-converted-to.pdf used on i
+nput line 21.
+(pdftex.def)             Requested size: 284.53154pt x 142.26378pt.
+Package epstopdf Info: Source file: <Images/correlations_05.eps>
+(epstopdf)                    date: 2016-01-08 14:44:56
+(epstopdf)                    size: 20349 bytes
+(epstopdf)             Output file: <Images/correlations_05-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2016-01-13 19:29:57
+(epstopdf)                    size: 16060 bytes
+(epstopdf)             Command: <repstopdf --outfile=Images/correlations_05-eps
+-converted-to.pdf Images/correlations_05.eps>
+(epstopdf)             \includegraphics on input line 27.
+Package epstopdf Info: Output file is already uptodate.
+
+<Images/correlations_05-eps-converted-to.pdf, id=88, 722.7pt x 361.35pt>
+File: Images/correlations_05-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Images/correlations_05-eps-converted-to.pdf>
+Package pdftex.def Info: Images/correlations_05-eps-converted-to.pdf used on in
+put line 27.
+(pdftex.def)             Requested size: 284.53154pt x 142.26378pt.
+Package epstopdf Info: Source file: <Images/correlations_095.eps>
+(epstopdf)                    date: 2016-01-08 14:55:07
+(epstopdf)                    size: 28523 bytes
+(epstopdf)             Output file: <Images/correlations_095-eps-converted-to.p
+df>
+(epstopdf)                    date: 2016-01-13 19:29:57
+(epstopdf)                    size: 19638 bytes
+(epstopdf)             Command: <repstopdf --outfile=Images/correlations_095-ep
+s-converted-to.pdf Images/correlations_095.eps>
+(epstopdf)             \includegraphics on input line 33.
+Package epstopdf Info: Output file is already uptodate.
+
+<Images/correlations_095-eps-converted-to.pdf, id=89, 722.7pt x 361.35pt>
+File: Images/correlations_095-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Images/correlations_095-eps-converted-to.pdf>
+Package pdftex.def Info: Images/correlations_095-eps-converted-to.pdf used on i
+nput line 33.
+(pdftex.def)             Requested size: 284.53154pt x 142.26378pt.
+Package epstopdf Info: Source file: <Images/correlations_slopes.eps>
+(epstopdf)                    date: 2016-01-08 17:35:22
+(epstopdf)                    size: 5521 bytes
+(epstopdf)             Output file: <Images/correlations_slopes-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2016-01-13 19:29:58
+(epstopdf)                    size: 10698 bytes
+(epstopdf)             Command: <repstopdf --outfile=Images/correlations_slopes
+-eps-converted-to.pdf Images/correlations_slopes.eps>
+(epstopdf)             \includegraphics on input line 46.
+Package epstopdf Info: Output file is already uptodate.
+
+<Images/correlations_slopes-eps-converted-to.pdf, id=90, 722.7pt x 361.35pt>
+File: Images/correlations_slopes-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Images/correlations_slopes-eps-converted-to.pdf>
+Package pdftex.def Info: Images/correlations_slopes-eps-converted-to.pdf used o
+n input line 46.
+(pdftex.def)             Requested size: 338.58632pt x 169.29417pt.
+)
+(./Results/LD_Results.tex
+<Images/op_relaxation_long_rho_05.png, id=91, 890.32625pt x 584.1825pt>
 File: Images/op_relaxation_long_rho_05.png Graphic file (type png)
 
 <use Images/op_relaxation_long_rho_05.png>
@@ -672,7 +756,7 @@ Package pdftex.def Info: Images/op_relaxation_long_rho_05.png used on input lin
 e 11.
 (pdftex.def)             Requested size: 154.78653pt x 101.556pt.
 
-<Images/op_relaxation_short_rho_05.png, id=87, 890.32625pt x 584.1825pt>
+<Images/op_relaxation_short_rho_05.png, id=92, 890.32625pt x 584.1825pt>
 File: Images/op_relaxation_short_rho_05.png Graphic file (type png)
 
 <use Images/op_relaxation_short_rho_05.png>
@@ -680,7 +764,7 @@ Package pdftex.def Info: Images/op_relaxation_short_rho_05.png used on input li
 ne 15.
 (pdftex.def)             Requested size: 154.78653pt x 101.556pt.
 
-<Images/op_relaxation_long_rho_075.png, id=88, 890.32625pt x 584.1825pt>
+<Images/op_relaxation_long_rho_075.png, id=93, 890.32625pt x 584.1825pt>
 File: Images/op_relaxation_long_rho_075.png Graphic file (type png)
 
 <use Images/op_relaxation_long_rho_075.png>
@@ -688,7 +772,7 @@ Package pdftex.def Info: Images/op_relaxation_long_rho_075.png used on input li
 ne 23.
 (pdftex.def)             Requested size: 154.78653pt x 101.556pt.
 
-<Images/op_relaxation_short_rho_075.png, id=89, 890.32625pt x 584.1825pt>
+<Images/op_relaxation_short_rho_075.png, id=94, 890.32625pt x 584.1825pt>
 File: Images/op_relaxation_short_rho_075.png Graphic file (type png)
 
 <use Images/op_relaxation_short_rho_075.png>
@@ -696,7 +780,7 @@ Package pdftex.def Info: Images/op_relaxation_short_rho_075.png used on input l
 ine 27.
 (pdftex.def)             Requested size: 154.78653pt x 101.556pt.
 
-<Images/op_relaxation_long_rho_085.png, id=90, 890.32625pt x 584.1825pt>
+<Images/op_relaxation_long_rho_085.png, id=95, 890.32625pt x 584.1825pt>
 File: Images/op_relaxation_long_rho_085.png Graphic file (type png)
 
 <use Images/op_relaxation_long_rho_085.png>
@@ -704,7 +788,7 @@ Package pdftex.def Info: Images/op_relaxation_long_rho_085.png used on input li
 ne 35.
 (pdftex.def)             Requested size: 154.78653pt x 101.556pt.
 
-<Images/op_relaxation_short_rho_085.png, id=91, 890.32625pt x 584.1825pt>
+<Images/op_relaxation_short_rho_085.png, id=96, 890.32625pt x 584.1825pt>
 File: Images/op_relaxation_short_rho_085.png Graphic file (type png)
 
 <use Images/op_relaxation_short_rho_085.png>
@@ -712,9 +796,16 @@ Package pdftex.def Info: Images/op_relaxation_short_rho_085.png used on input l
 ine 39.
 (pdftex.def)             Requested size: 154.78653pt x 101.556pt.
 
-<Images/op_relaxation_short_fitting_kbt_1.png, id=92, 890.32625pt x 584.1825pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <./Images/op_vs_kbt_MC.png (PNG copy)>] [10 <./Images/correlations_025-eps-c
+onverted-to.pdf> <./Images/correlations_05-eps-converted-to.pdf> <./Images/corr
+elations_095-eps-converted-to.pdf>]
+<Images/op_relaxation_short_fitting_kbt_1.png, id=137, 890.32625pt x 584.1825pt
+>
 File: Images/op_relaxation_short_fitting_kbt_1.png Graphic file (type png)
-<use Images/op_relaxation_short_fitting_kbt_1.png>
+ <use Images/op_relaxation_short_fitting_kbt_1.png>
 Package pdftex.def Info: Images/op_relaxation_short_fitting_kbt_1.png used on i
 nput line 55.
 (pdftex.def)             Requested size: 241.84843pt x 158.68517pt.
@@ -722,7 +813,7 @@ nput line 55.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Images/op_slopes_short_vs_kbt.png, id=93, 890.32625pt x 584.1825pt>
+<Images/op_slopes_short_vs_kbt.png, id=138, 890.32625pt x 584.1825pt>
 File: Images/op_slopes_short_vs_kbt.png Graphic file (type png)
 
 <use Images/op_slopes_short_vs_kbt.png>
@@ -730,7 +821,7 @@ Package pdftex.def Info: Images/op_slopes_short_vs_kbt.png used on input line 6
 6.
 (pdftex.def)             Requested size: 241.84843pt x 158.68517pt.
 
-<Images/op_slopes_short_vs_rho.png, id=94, 890.32625pt x 584.1825pt>
+<Images/op_slopes_short_vs_rho.png, id=139, 890.32625pt x 584.1825pt>
 File: Images/op_slopes_short_vs_rho.png Graphic file (type png)
 
 <use Images/op_slopes_short_vs_rho.png>
@@ -745,38 +836,39 @@ Overfull \hbox (2.61108pt too wide) in paragraph at lines 64--79
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [9 <./Images/op_relaxation_long_rho_05.png (PNG copy)> <./Images/op_relaxatio
-n_short_rho_05.png (PNG copy)> <./Images/op_relaxation_long_rho_075.png (PNG co
-py)> <./Images/op_relaxation_short_rho_075.png (PNG copy)> <./Images/op_relaxat
-ion_long_rho_085.png (PNG copy)> <./Images/op_relaxation_short_rho_085.png (PNG
- copy)>] (./App/quaternions.tex [10 <./Images/op_relaxation_short_fitting_kbt_1
-.png (PNG copy)> <./Images/op_slopes_short_vs_kbt.png (PNG copy)> <./Images/op_
-slopes_short_vs_rho.png (PNG copy)>]) [11] (./main.bbl) [12] (./main.aux) ) 
+) [11 <./Images/correlations_slopes-eps-converted-to.pdf>]
+(./App/quaternions.tex [12 <./Images/op_relaxation_long_rho_05.png (PNG copy)> 
+<./Images/op_relaxation_short_rho_05.png (PNG copy)> <./Images/op_relaxation_lo
+ng_rho_075.png (PNG copy)> <./Images/op_relaxation_short_rho_075.png (PNG copy)
+> <./Images/op_relaxation_long_rho_085.png (PNG copy)> <./Images/op_relaxation_
+short_rho_085.png (PNG copy)>] [13 <./Images/op_relaxation_short_fitting_kbt_1.
+png (PNG copy)> <./Images/op_slopes_short_vs_kbt.png (PNG copy)> <./Images/op_s
+lopes_short_vs_rho.png (PNG copy)>]) [14] (./main.bbl) [15] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 5509 strings out of 493304
- 81130 string characters out of 6139872
- 155021 words of memory out of 5000000
- 8818 multiletter control sequences out of 15000+600000
+ 5541 strings out of 493304
+ 82276 string characters out of 6139872
+ 156061 words of memory out of 5000000
+ 8842 multiletter control sequences out of 15000+600000
  11391 words of font info for 43 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  59i,10n,94p,1562b,572s stack positions out of 5000i,500n,10000p,200000b,80000s
-</us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (12 pages, 985300 bytes).
+</usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (15 pages, 1096241 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
+ 213 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 
