@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.5)  7 MAR 2016 11:55
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.5)  7 MAR 2016 12:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -560,150 +560,32 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<Images/fullSystemPicture.png, id=1, 882.29625pt x 122.4575pt>
-File: Images/fullSystemPicture.png Graphic file (type png)
-
-<use Images/fullSystemPicture.png>
-Package pdftex.def Info: Images/fullSystemPicture.png used on input line 23.
-(pdftex.def)             Requested size: 435.32422pt x 60.41951pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 25.
-
+LaTeX Font Info:    Try loading font information for U+msa on input line 21.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 25.
+LaTeX Font Info:    Try loading font information for U+msb on input line 21.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+) [1
 
- <./Images/fullSystemPicture.png>]
-Package epstopdf Info: Source file: <Images/op_kbt_new.eps>
-(epstopdf)                    date: 2016-03-07 11:53:17
-(epstopdf)                    size: 12106 bytes
-(epstopdf)             Output file: <Images/op_kbt_new-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-03-07 11:53:26
-(epstopdf)                    size: 12524 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/op_kbt_new-eps-conv
-erted-to.pdf Images/op_kbt_new.eps>
-(epstopdf)             \includegraphics on input line 77.
-Package epstopdf Info: Output file is already uptodate.
-
-<Images/op_kbt_new-eps-converted-to.pdf, id=13, 433.62pt x 361.35pt>
-File: Images/op_kbt_new-eps-converted-to.pdf Graphic file (type pdf)
-
-<use Images/op_kbt_new-eps-converted-to.pdf>
-Package pdftex.def Info: Images/op_kbt_new-eps-converted-to.pdf used on input l
-ine 77.
-(pdftex.def)             Requested size: 217.66211pt x 181.38583pt.
-Package epstopdf Info: Source file: <Images/op_dens.eps>
-(epstopdf)                    date: 2016-03-07 11:53:24
-(epstopdf)                    size: 9721 bytes
-(epstopdf)             Output file: <Images/op_dens-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-03-07 11:53:27
-(epstopdf)                    size: 11654 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/op_dens-eps-convert
-ed-to.pdf Images/op_dens.eps>
-(epstopdf)             \includegraphics on input line 81.
-Package epstopdf Info: Output file is already uptodate.
-
-<Images/op_dens-eps-converted-to.pdf, id=14, 433.62pt x 361.35pt>
-File: Images/op_dens-eps-converted-to.pdf Graphic file (type pdf)
-
-<use Images/op_dens-eps-converted-to.pdf>
-Package pdftex.def Info: Images/op_dens-eps-converted-to.pdf used on input line
- 81.
-(pdftex.def)             Requested size: 217.66211pt x 181.38583pt.
-Package epstopdf Info: Source file: <Images/particle_probs.eps>
-(epstopdf)                    date: 2016-03-07 10:50:56
-(epstopdf)                    size: 14193 bytes
-(epstopdf)             Output file: <Images/particle_probs-eps-converted-to.pdf
->
-(epstopdf)                    date: 2016-03-07 10:51:01
-(epstopdf)                    size: 13385 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/particle_probs-eps-
-converted-to.pdf Images/particle_probs.eps>
-(epstopdf)             \includegraphics on input line 94.
-Package epstopdf Info: Output file is already uptodate.
-
-<Images/particle_probs-eps-converted-to.pdf, id=15, 722.7pt x 361.35pt>
-File: Images/particle_probs-eps-converted-to.pdf Graphic file (type pdf)
-
-<use Images/particle_probs-eps-converted-to.pdf>
-Package pdftex.def Info: Images/particle_probs-eps-converted-to.pdf used on inp
-ut line 94.
-(pdftex.def)             Requested size: 483.69687pt x 241.84961pt.
-Package epstopdf Info: Source file: <Images/particle_probs_dynamics.eps>
-(epstopdf)                    date: 2016-03-07 11:55:00
-(epstopdf)                    size: 41808 bytes
-(epstopdf)             Output file: <Images/particle_probs_dynamics-eps-convert
-ed-to.pdf>
-(epstopdf)                    date: 2016-03-07 11:39:38
-(epstopdf)                    size: 22528 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/particle_probs_dyna
-mics-eps-converted-to.pdf Images/particle_probs_dynamics.eps>
-(epstopdf)             \includegraphics on input line 103.
-runsystem(repstopdf --outfile=Images/particle_probs_dynamics-eps-converted-to.p
-df Images/particle_probs_dynamics.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <Images/particle_probs_dynamics-eps-convert
-ed-to.pdf>
-(epstopdf)                    date: 2016-03-07 11:55:07
-(epstopdf)                    size: 23032 bytes.
-
-<Images/particle_probs_dynamics-eps-converted-to.pdf, id=16, 722.7pt x 361.35pt
->
-File: Images/particle_probs_dynamics-eps-converted-to.pdf Graphic file (type pd
-f)
- <use Images/particle_probs_dynamics-eps-converted-to.pdf>
-Package pdftex.def Info: Images/particle_probs_dynamics-eps-converted-to.pdf us
-ed on input line 103.
-(pdftex.def)             Requested size: 483.69687pt x 241.84961pt.
-Package epstopdf Info: Source file: <Images/autocorrs.eps>
-(epstopdf)                    date: 2016-03-07 11:54:17
-(epstopdf)                    size: 8023 bytes
-(epstopdf)             Output file: <Images/autocorrs-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-03-07 11:49:09
-(epstopdf)                    size: 6452 bytes
-(epstopdf)             Command: <repstopdf --outfile=Images/autocorrs-eps-conve
-rted-to.pdf Images/autocorrs.eps>
-(epstopdf)             \includegraphics on input line 113.
-runsystem(repstopdf --outfile=Images/autocorrs-eps-converted-to.pdf Images/auto
-corrs.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <Images/autocorrs-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-03-07 11:55:08
-(epstopdf)                    size: 13554 bytes.
-
-<Images/autocorrs-eps-converted-to.pdf, id=17, 722.7pt x 361.35pt>
-File: Images/autocorrs-eps-converted-to.pdf Graphic file (type pdf)
-
-<use Images/autocorrs-eps-converted-to.pdf>
-Package pdftex.def Info: Images/autocorrs-eps-converted-to.pdf used on input li
-ne 113.
-(pdftex.def)             Requested size: 483.69687pt x 241.84961pt.
- [2 <./Images/op_kbt_new-eps-converted-to.pdf> <./Images/op_dens-eps-converted-
-to.pdf>] [3 <./Images/particle_probs-eps-converted-to.pdf> <./Images/particle_p
-robs_dynamics-eps-converted-to.pdf>] [4 <./Images/autocorrs-eps-converted-to.pd
-f>] (./main.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 5388 strings out of 493304
- 77774 string characters out of 6139872
- 153683 words of memory out of 5000000
- 8734 multiletter control sequences out of 15000+600000
+ 5326 strings out of 493304
+ 76142 string characters out of 6139872
+ 148611 words of memory out of 5000000
+ 8692 multiletter control sequences out of 15000+600000
  8285 words of font info for 32 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 59i,8n,94p,714b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (4 pages, 222073 bytes).
+ 59i,5n,94p,626b,119s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on main.pdf (1 page, 25407 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
+ 16 PDF objects out of 1000 (max. 8388607)
+ 10 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,30 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\makeatletter
+\renewcommand\thesubsection{\@arabic\c@subsection}
+\makeatother
+
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+
+\author{Maksym Polovyi}
+\begin{document}
+
+The phenomena under study is the existence of non-zero nematic order in a colloidal suspension consisting of short-rage interacting particles. As the model, we consider colloidal particles with a permanent dipole moment. While considering a three-dimensional system, we constrain particle translational motion to a one-dimensional line, i.e. particles are confined to the $z$ axis. However, particles can explore the full three dimensional orientation space.
+
+This model can be used to describe for example the 1D hydrogen bonded wires in zeolites and carbon nanotubes.
+
+In this work we concentrate on analysing equilibrium and dynamical properties of the model. We measure the nematic order of a system, and relative orientational  probability of the particles. To analyse the equilibrium properties, first, we perform Monte Carlo (MC) simulations, and then compare the obtained results with long-time Langevin Dynamics (LD) simulations. The comparison yields a good agreement for all reasonable values of simulation parameters (density and temperature), thus we assume that neither MC nor LD simulations were trapped in a local minima, and indeed reached an equilibrium configuration.
+
+On the equilibrium, the system shows complete homogeneous structure, with particles aggregated in a clusters with a local orientational order. The dynamical evolution of all observed quantities proved to be an exponential over time relaxation to a respective equilibrium values.
+The simulations of different systems sizes with other parameters being fixed, performed for MC and LD, hasn't shown any evidence of scaling.
+
+\end{document}
