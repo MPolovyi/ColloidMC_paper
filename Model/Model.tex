@@ -6,7 +6,7 @@
 \centering
 	\includegraphics[width=0.9\textwidth]{Images/fullSystemPicture}
 	\captionsetup{justification=centering, width=0.9\textwidth}
-	\caption{Snapshot of for density $\rho = 0.95$ and $k_BT = 1.5$ \textcolor{red}{It's just computer units. To go to real units, I have to define my particle interactions in real units, and then look at the relation between potential and kinetic energy?}. Arrows represent the dipole moment of the particle. System sample obtained by means of Langevin dynamics simulation. The simulation has run until $t = 100$, fluid medium viscosity $\eta = 1$ and particle mass $m = 1$. \textcolor{red}{What do you mean by when? December 20, i think.}}
+	\caption{Snapshot of for density $\rho = 0.95$ and $k_BT = 1.5$. Arrows represent the dipole moment of the particle. System sample obtained by means of Langevin dynamics simulation. The simulation was allowed to equilibrate for time $t = 100$ with fluid medium viscosity $\eta = 1$ and particle mass $m = 1$.}
 	\label{fig:fullSystemPicture}
 \end{figure*}
 
@@ -49,39 +49,4 @@ where $A$ and $k^{-1}$ --- are the strength and range of interaction. \figref{fi
 \label{fig:interaction_energy}
 \end{figure}
 
-%\begin{figure}[p]
-%\centering
-%\begin{subfigure}{\textwidth}
-%\centering
-%\begin{subfigure}{.45\textwidth}
-%	\centering
-%	\includegraphics[width=\textwidth]{Images/k=10}
-%\end{subfigure}
-%\begin{subfigure}{.45\textwidth}
-%	\centering
-%	\includegraphics[width=\textwidth]{Images/A=1000}
-%\end{subfigure}
-%	\captionsetup{justification=centering, width=0.8\textwidth, singlelinecheck=false}
-%	\caption{Particles dipole moments are both co-aligned with $z$ axis}
-%    \label{fig:interaction_energy_coaligned}
-%\end{subfigure}
-%\begin{subfigure}{\textwidth}
-%\centering
-%\begin{subfigure}{.45\textwidth}
-%	\centering
-%	\includegraphics[width=\textwidth]{Images/k=10_perp}
-%\end{subfigure}
-%\begin{subfigure}{.45\textwidth}
-%	\centering
-%	\includegraphics[width=\textwidth]{Images/A=1000_perp}
-%\end{subfigure}
-%	\captionsetup{justification=centering, width=0.8\textwidth, singlelinecheck=false}
-%	\caption{First particle dipole moment is co-aligned and second particle dipole moment is perpendicular to $z$ axis}
-%    \label{fig:interaction_energy_counteraligned}
-%\end{subfigure}
-%\captionsetup{justification=centering, width=0.9\textwidth}
-%\caption{Interaction energy as function of distance between centres of two interacting particles for co-aligned (\ref{fig:interaction_energy_coaligned}) and perpendicular (\ref{fig:interaction_energy_counteraligned}) orientation of the particles dipole moments. Left plots show energy for the fixed value of $k = 10$, and right for the fixed value of $A = 1000$}
-%\label{fig:interaction_energy}
-%\end{figure}
-
-When the dipole moments are perpendicular to each other the interaction is purely repulsive. However, as we can see on the \figref{fig:interaction_energy}(a) and \figref{fig:interaction_energy}(b), for low values of $A$ ($A = 100$), combined with high values of $k$ ($k = 10$), we can observe purely attractive interaction \textcolor{red}{The violet curve with diagonal crosses on the \figref{fig:interaction_energy}, it doesn't go up after it went down. So it's purely attractive}. Since in that case all particles will coalesce in one point, we assumed $A = 1000$ and $k = 10$, the case where interaction energy have well-defined minimum and maximum.
+When the dipole moments are perpendicular to each other the interaction is purely repulsive. However, as we can see on the \figref{fig:interaction_energy}(a) and \figref{fig:interaction_energy}(b), for low values of $A = 100$, combined with high values of $k = 10$, we can observe purely attractive interaction \textcolor{red}{The violet curve with diagonal crosses on the \figref{fig:interaction_energy}, it doesn't go up after it went down. So it's purely attractive}. Since in that case all particles will coalesce in one point, we assumed $A = 1000$ and $k = 10$, the case where interaction energy have well-defined minimum and maximum.
