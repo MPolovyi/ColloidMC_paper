@@ -1,15 +1,14 @@
 %!TEX root = ..\main.tex
-\section{Results}
-\subsection{Simulation details}
-\label{subsec:simulation_details}
+\section{Simulation details}
+\label{sec:simulation_details}
 
 Defining $\rho = \frac{N D}{L}$ where $N$ --- number of particles and $D = \Delta z_{min}$ --- particle diameter calculated numerically, we immediately obtain the simulation system size $L = N D/ \rho$. In our simulations we considered cases of different densities $\rho = (0.25,\ 0.5,\ 0.75)$.
 
-To check for existence of finite-size effects, for each value of density we perform simulations with different particle numbers $N = (1600,\ 3200,\ 6400)$. \textcolor{red}{I've already said that I do it for different density, should I say that I do it for different size instead?}
+To check for existence of finite-size effects, for each value of density we performed simulations with different system sizes $N = (1600,\ 3200,\ 6400)$. \textcolor{red}{I'm maintaining density as constant and changing $L$ and $N$ accordingly. I'm reporting here $N$ instead of $L$ because the particle diameter is $~0.62$, and for $N = 1600, \rho = 0.75$ the $L = 1322.667$, which for me is more confusing then number of particles}
 
-The Monte-Carlo simulations were allowed to equilibrate for $\Delta = 3 \cdot 10^5$ sweeps (one sweep consists of $N$ Monte-Carlo test steps), and after that every $\Delta$ sweeps were generated ensemble-averaged quantities, obtaining $10$ uncorrelated samples. To obtain initial configuration, particles were distributed on a lattice with step $d = \frac{D}{\rho}$, and then were subjected to random displacement uniformly-distributed in $[-d/4, d/4]$. Initial orientation of particles were chosen uniformly at random.
+The Monte-Carlo simulations were allowed to equilibrate for $\Delta = 3 \cdot 10^5$ Monte Carlo sweeps, and different quantities were measured after every $\Delta$ sweeps, obtaining $10$ uncorrelated samples. To generate the initial configuration, dipolar particles were regularly distributed along $z$ axis, with an interparticle distance $d = \frac{D}{\rho}$, and then displaced by a certain value, following a uniform distribution in the range $[-d/4, d/4]$. The orientation of the dipoles was generated uniformly at random.
 
-The Langevin dynamics simulations were running with the following parameters: particle mass $m = 1$ \textcolor{red}{Units of particle mass}, fluid viscosity $\eta = 1$ \textcolor{red}{Units of some reference viscosity}, integration time step $d t = 0.01$. Initial particle coordinates were obtained as in the Monte-Carlo case. To check dependence of system evolution on the initial configuration, we made simulations staring from three possible orientation configurations. First was to select orientation uniformly at random, second was to have all particles oriented along the $z$ axis, \textcolor{red}{and the third was to have particles with even index oriented along, and with odd index against $z$ axis.} We will refer to this configurations as ``random'', ``co-aligned'' and ``counter-aligned'' respectively. The sampling was done directly --- ensemble averaging quantities over one simulation run we obtain one uncorrelated sample. \textcolor{red}{as long as the random generator is properly initialized}
+The Langevin dynamics simulations were ran with the following parameters: unitary mass $m$ and viscosity $\mu$, and time integration step $d t = 0.01$. Initial particle coordinates were obtained as in the Monte-Carlo case. To check dependence of system evolution on the initial configuration, we performed simulations staring from three possible orientational configurations. First, we generated the initial orientations uniformly at random; second,  we aligned all particles along the $z$ axis; and third, particles of even index were oriented along, and with odd index against $z$ axis. We refer to these configurations as ``random'', ``co-aligned'' and ``counter-aligned'', respectively. The sampling was done directly --- ensemble averaging quantities over one simulation run, we obtain one uncorrelated sample.
 
 We measured the following quantities:
 
@@ -17,20 +16,21 @@ Nematic order parameter $S$ is defined as:
 \begin{equation}
 \label{eq:nematic_order_parameter}
 	S = \frac{3 \langle\cos^2 \theta\rangle - 1}{2}
+	,
 \end{equation}
-where $\theta$ it the angle between particle dipole moment and spatial axis, while angle brackets denotes ensemble average over all particles.
+where $\theta$ it the angle between particle dipole moment and $z$ axis, while angle brackets denotes ensemble average over all particles.
 
 Next we measured probability distribution $p(\theta)$ of the angle $\theta$ between particle dipole moment and $z$ axis.
 
 We also measured the orientation correlation as a function of the distance between particles:
 \begin{equation}
 \label{eq:distance_correlation}
-	C(\Delta z) = \langle\cos \theta_i \cos \theta_j\rangle \propto |\Delta z|
+	C(\Delta z) = \langle\cos \theta_i \cos \theta_j\rangle
+	,
 \end{equation}
 where $\theta_i$ and $\theta_j$ are angles between spatial axis and dipole moments of particles for which $\Delta z - \delta < |z_j - z_i| \leq \Delta z + \delta$, where $2\delta$ is a predefined space sampling. Angle brackets denotes ensemble-averaging over all particles in all samples which satisfy distance criteria.
 
 We measure the average chain length, where chain is a sequence of chained particles and two particles considered to be ``chained'' if 
-\textcolor{red}{maybe here should be something about energy threshold}
 \begin{equation}
 \label{eq:chains_definition}
 \begin{cases}
