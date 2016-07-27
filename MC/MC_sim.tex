@@ -2,11 +2,11 @@
 
 First, we study the equilibrium properties by means of Monte Carlo simulations.
 
-At first Monte Carlo step we select a particle at random, and attempt a translational and then a rotational move. Next step we select the first neighboring particle in the positive direction of $z$ axis. \textcolor{red}{And repeat translational and rotational move}
+We start our simulations by selecting a particle at random, and attempting a translational and then a rotational move at that particle. Every consecutive step we select the first neighboring particle in the positive direction of $z$ axis.
 
-In the translational move a particle is displaced along the z-axis ($z_{t+1} = z_t + \delta z$), where $\delta z$ is a random value uniformly distributed in the range $[+\eta, -\eta]$, with $\eta = 0.5 (\Delta z_{min} - \Delta z_0)$. Here $\Delta z_{min}$ is the interparticle distance for which the interaction energy between two aligned dipoles is minimal, and $\Delta z_0$ is the interparticle distance for which the potential energy vanishes if we decrease distance starting from $\Delta z_{min}$. $\Delta z_0$ is shown as red circle at the Fig.~\ref{fig:delta_z_0_location}.
+In the translational move a particle is displaced along the z-axis ($z_{t+1} = z_t + \delta z$), where $\delta z$ is a random value uniformly distributed in the range $[+\eta, -\eta]$, with $\eta = 0.5 (\Delta z_{min} - \Delta z_0)$. Here $\Delta z_{min}$ is the interparticle distance for which the interaction energy between two aligned dipoles is minimal, and $\Delta z_0$ (shown as red circle at the Fig.~\ref{fig:delta_z_0_location}) is the interparticle distance for which the potential energy vanishes if we decrease distance starting from $\Delta z_{min}$.
 
-For the rotational move a new orientation is chosen uniformly at random. A move is accepted with probability $\eta < \mathrm{min} \left\{1, \, \exp(\Delta E / k_BT) \right\}$, where $\eta$ is a random number uniformly-distributed in $[0, 1)$ and $\Delta E$ is change in potential energy due to the trial move.
+For the rotational move a new orientation is chosen uniformly at random. A move is accepted with probability $\eta < \mathrm{min} \left\{1, \, \exp(\Delta E / k_BT) \right\}$, where $\eta$ is a random number uniformly-distributed in $[0, 1)$ and $\Delta E$ is the change in potential energy due to the trial move.
 
 For the sake of simplicity, we restrict interactions to the first-neighbors.
 
@@ -16,6 +16,6 @@ We also consider periodic boundary conditions.
 	\centering
 	\includegraphics[width=0.6\textwidth]{Images/potential_energy_zero}
 	\captionsetup{justification=centering, width=0.9\textwidth}
-	\caption{Potential energy as function of interparticle distance for co-aligned configuration and $k = 10$, $A = 1000$. Red point shows location of $\Delta z_0$}
+	\caption{Potential energy as function of interparticle distance for co-aligned configuration and $k = 10$, $A = 1000$. Red point shows location of $\Delta z_0$.}
 	\label{fig:delta_z_0_location}
 \end{figure}
