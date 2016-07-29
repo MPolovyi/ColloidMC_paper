@@ -1,34 +1,26 @@
-\documentclass[12pt, a4paper]{article}
+\documentclass[%
+ aapm,
+ mph,%
+ amsmath,amssymb,
+%preprint,%
+ reprint,%
+%author-year,%
+%author-numerical,%
+]{revtex4-1}
 \usepackage[utf8]{inputenc}
 \usepackage[export]{adjustbox}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
+%\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{subcaption}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+%\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 \newcommand{\figref}[1]{Figure~\ref{#1}}
 
-\makeatletter
-\newenvironment{sqcases}{%
-  \matrix@check\sqcases\env@sqcases
-}{%
-  \endarray\right.%
-}
-\def\env@sqcases{%
-  \let\@ifnextchar\new@ifnextchar
-  \left\lbrack
-  \def\arraystretch{1.2}%
-  \array{@{}l@{\quad}l@{}}%
-}
-\makeatother
-
-\author{Maksym Polovyi}
-\title{Colloid MC}
 \begin{document}
 
 \input{Model/Model}
@@ -42,9 +34,9 @@
 \input{Results/LD_Results}
 
 \newpage
-\input{App/quaternions}
-\input{App/LD_integration}
-\input{App/LD_statistics_check}
+%\input{App/quaternions}
+%\input{App/LD_integration}
+%\input{App/LD_statistics_check}
 
 \newpage
 \bibliographystyle{plain}

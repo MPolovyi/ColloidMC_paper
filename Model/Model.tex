@@ -6,7 +6,7 @@
 \centering
 	\includegraphics[width=0.9\textwidth]{Images/fullSystemPicture}
 	\captionsetup{justification=centering, width=0.9\textwidth}
-	\caption{Snapshot obtained from Langevin dynamics simulations for density $\rho = 0.95$ and $k_BT = 1.5$. The arrows represent the dipole moment of the particle. The simulation was allowed to equilibrate for time $t = 100$.}
+	\caption{Snapshot obtained from Langevin dynamics simulations for density $\rho = 0.95$ and $k_BT = 1.5$. The arrows represent the dipole moment of the particle. The simulation was allowed to equilibrate for time $t = 100$. \textcolor{red}{The time is LD simulation units, in $1$ time particles will diffuse $0.1$ distance in case of $k_BT = 1$. $0.1$ distance is $1/6$ of particle diameter.}}
 	\label{fig:fullSystemPicture}
 \end{figure*}
 
@@ -43,11 +43,11 @@ where $A$ and $k^{-1}$ are the strength and range of interaction.
 
 In this work we define thermal energy $k_BT$ in units of dipole-dipole interaction potential, (i.e. $k_BT = \epsilon \mu^2$, where $\epsilon$ is reduced energy), and maintain the ratio between $\mu$ and $A$ as constant. Without loss of generality, we can define $\mu = 1$.
 
-\begin{figure}[p]
+\begin{figure}[h]
 \centering
-	\includegraphics[width=0.9\textwidth]{Images/particle_interaction_potential}
-\captionsetup{justification=centering, width=0.9\textwidth}
-\caption{Energy of the pairwise interaction as function of the interparticle distance when both dipoles are aligned (top) or one is perpendicular (bottom) to the $z$ axis. For the plots a) and c) we fix the interparticle distance when the dipoles are for $k = 10$, and for b) and d) we fix for $A = 1000$.}
+	\includegraphics[width=0.9\columnwidth]{Images/particle_interaction_potential}
+\captionsetup{justification=centering, width=0.9\columnwidth}
+\caption{Energy of the pairwise interaction as function of the interparticle distance when both dipoles are aligned (top) or one is perpendicular (bottom) to the $z$ axis. For the plots a) and c) we fix the interparticle distance $k = 10$ while changing $A$, and for b) and d) we fix $A = 1000$ while changing $k$.}
 \label{fig:interaction_energy}
 \end{figure}
 

@@ -1,34 +1,26 @@
 \subsection{Simulation details and results}
 \label{subsec:molecular_dynamics_results}
 
-%For Langevin Dynamics we additionally measure autocorrelation function of a particle orientation:
-%\begin{equation}
-%\label{eq:autocorrelation_ld}
-%	C(t) = \langle\cos\theta_i(t) \cdot \cos\theta_i(0)\rangle
-%\end{equation}
-%here $\theta_i(0)$ is the orientation of a particle $i$ at the beginning of simulation and $\theta_i(t)$ is the orientation of the same particle in the same sample at the time $t$. The ensemble-averaging is done over all particles.
-%
-
-
 The Langevin dynamics simulations were performed with the following parameters: unitary mass $m$ and viscosity $\nu$, and time integration step $d t = 0.01$. For the system dynamics we only consider densities $\rho = (0.25, 0.75)$, and to check for finite-size effects, we performed simulations with different system sizes $N = (1600, 6400)$.
 
-Initial particle coordinates were obtained as for the Monte Carlo simulations (see seq.~\ref{subsec:monte_carlo_results}). To study the dependence of the dynamics on the initial configuration, we performed simulations staring from three possible initial configurations. First, we generated the initial orientations uniformly at random; second,  we aligned all particles along the $z$ axis; and third, particles of even index were oriented along, and of odd index against $z$ axis. We refer to these configurations as ``random'', ``co-aligned'' and ``counter-aligned'', respectively. \textcolor{red}{Sampling?}
+Initial particle coordinates were obtained as for the Monte Carlo simulations (see seq.~\ref{subsec:monte_carlo_results}). To study the dependence of the dynamics on the initial configuration, we performed simulations staring from three possible initial configurations. First, we generated the initial orientations uniformly at random; second,  we aligned all particles along the $z$ axis; and third, particles of even index were oriented along, and of odd index against $z$ axis. We refer to these configurations as ``random'', ``co-aligned'' and ``counter-aligned'', respectively.
 
 We start by analyzing the relaxation of the order parameter $S$, defined in~\eqref{eq:nematic_order_parameter}, to the equilibrium value. The results are shown on the Fig.~\ref{fig:op_relaxation}. The squares, circles and triangles denote ``random'', ``co-aligned'' and ``counter-aligned'' initial configurations, respectively.
 
-First thing to note is that irrespectively of any other parameters, for ``counter-aligned'' and ``random'' initial configurations the relaxation follows the same path. However, for low $k_BT$ and high density the order parameter relaxes differently if we start from ``co-aligned'' initial configuration. We argue that it is due to symmetry of the system, which do not distinguish positive and negative direction along $z$ axis, and therefore encourages to have same amount of particles with positive and negative projections of dipole moment (on $z$ axis). Essentially, system have two timescales, one for ``re-orientation'' (equilibration of amount of particles pointing along and against $z$ axis), and the other for ``alignment'' (stabilization of distribution of projections of particles dipole moments, which corresponds to stabilization of order parameter).
+First thing to note is that irrespectively of any other parameters, for ``counter-aligned'' and ``random'' initial configurations the relaxation follows the same path. However, for low $k_BT$ and high density the order parameter relaxes differently if we start from ``co-aligned'' initial configuration. We argue that it is due to symmetry of the system, which do not distinguish positive and negative direction along $z$ axis, and therefore encourages to have same amount of particles with positive and negative projections of dipole moment (on $z$ axis). Essentially, system have two timescales, one for ``re-orientation'' (equilibration of amount of particles pointing along and against $z$ axis), and the other for ``alignment'' (equilibration of distribution of projections of particles dipole moments, which corresponds to equilibration of order parameter).
+While exponential relaxation is more common~\cite{C5SM02754C}, one-dimensional DNA stripes follow have truncated power-law distribution of bound lifetime, as reported in~\cite{Rogers2013}.
 
 \begin{figure}[t]
 \centering
-\begin{subfigure}[t]{0.32\textwidth}
+\begin{subfigure}[t]{0.7\columnwidth}
 	\centering
 	\includegraphics[width=\textwidth]{Images/relax_op_25}
 \end{subfigure}
-\begin{subfigure}[t]{0.32\textwidth}
+\begin{subfigure}[t]{0.7\columnwidth}
 	\centering
 	\includegraphics[width=\textwidth]{Images/relax_op_75_exp}
 \end{subfigure}
-	\captionsetup{justification=centering, width=0.9\columnwidth}
+	\captionsetup{width=0.9\columnwidth}
 	\caption{Relaxation of order parameter to the equilibrium values for densities $\rho = (0.25, 0.75)$, left and right respectively. The squares, circles and triangles denote ``random'', ``co-aligned'' and ``counter-aligned'' initial configurations, respectively. Color indicates $k_BT$. The results are obtained on $500$ samples of $N = 6400$.}
 	\label{fig:op_relaxation}
 \end{figure}
@@ -56,20 +48,20 @@ Another observation is that co-aligned orientation pairs relaxes slower then cou
 
 \begin{figure}[t]
 \centering
-\begin{subfigure}[t]{0.32\textwidth}
+\begin{subfigure}[t]{0.49\columnwidth}
 	\centering
 	\includegraphics[width=\textwidth]{Images/Particle_probs_25}
 \end{subfigure}
-\begin{subfigure}[t]{0.32\textwidth}
+\begin{subfigure}[t]{0.49\columnwidth}
 	\centering
 	\includegraphics[width=\textwidth]{Images/Particle_probs_75}
 \end{subfigure}
 
-\begin{subfigure}[t]{0.32\textwidth}
+\begin{subfigure}[t]{0.49\columnwidth}
 	\centering
 	\includegraphics[width=\textwidth]{Images/Particle_probs_relaxation_25}
 \end{subfigure}
-\begin{subfigure}[t]{0.32\textwidth}
+\begin{subfigure}[t]{0.49\columnwidth}
 	\centering
 	\includegraphics[width=\textwidth]{Images/Particle_probs_relaxation_75}
 \end{subfigure}
@@ -88,12 +80,11 @@ here $\theta_i(0)$ is the orientation of a particle $i$ at the beginning of simu
 The main results are presented at the Fig.~\ref{fig:autocorrelation}. The results clearly shows the exponential tail for any given combination of parameters. However for short time scale the behavior isn't exponential, although in that case the relaxation is faster than the exponential regime, as we can clearly see in case of $k_BT = 0.8$ and $\rho = 0.25$ at the left of Fig.~\ref{fig:autocorrelation}. The relaxation time steadily increases with $k_BT$. Additionally we want to note that ``random'' initial configuration de-correlates faster than ``co-aligned'', albeit slower than ``counter-aligned'' configurations.
 
 \begin{figure}[t]
-\centering
-	\begin{subfigure}[t]{0.32\textwidth}
+	\begin{subfigure}[t]{0.42\columnwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Images/Autocors_25}
 	\end{subfigure}
-	\begin{subfigure}[t]{0.375\textwidth}
+	\begin{subfigure}[t]{0.49\columnwidth}
 		\centering
 		\includegraphics[width=\textwidth]{Images/Autocors_75}
 	\end{subfigure}

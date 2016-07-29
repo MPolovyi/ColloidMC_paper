@@ -26,7 +26,7 @@ Additionally, there is no systematic scaling with system size, which indicates t
 
 \begin{figure}[h]
 \centering
-	\includegraphics[width=0.5\textwidth]{Images/op_eq_log}
+	\includegraphics[width=0.7\columnwidth]{Images/op_eq_log}
 	\captionsetup{justification=centering, width=0.9\columnwidth}
 	\caption{Order parameter defined by Eq.~\eqref{eq:nematic_order_parameter} versus $k_BT$ for Monte-Carlo simulations. Triangles shows results for $N = 6400$ and squares for $N = 1600$ particles. As we can see there is no systematic scaling with system size. The results are obtained by means of MC simulations, and are average over $200$ samples as described in sec.~\ref{subsec:simulation_details}}
 	\label{fig:op_kbt}
@@ -41,7 +41,7 @@ To characterize the dependence of the structure on $k_BT$, we analyze the orient
 where $\theta_i$ and $\theta_j$ are angles between spatial axis and dipole moments of particles for which $\Delta z - \delta < |z_j - z_i| \leq \Delta z + \delta$, where $2\delta$ is a predefined space sampling. Angle brackets denotes ensemble-averaging over all particles in all samples which satisfy distance criteria.
 
 For all observed range of simulation parameters the correlation decays exponentially with distance. For selected number of simulation parameters the results are presented at the Figure~\ref{fig:dist_corr_eq}, done in log-linear scale. The dots are obtained with space sampling $\delta = 0.25D$, and are averaged over $400$ samples with $N = 6400$ particles. Lines are obtained by doing best linear fit to the results in range $0.01 < C(\Delta z) < 0.45$.
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
 \begin{subfigure}[t]{0.32\textwidth}
 	\centering
@@ -55,19 +55,19 @@ For all observed range of simulation parameters the correlation decays exponenti
 	\centering
 	\includegraphics[width=\textwidth]{Images/correlation_length_eq}
 \end{subfigure}
-	\captionsetup{justification=centering, width=0.9\columnwidth}
-	\caption{Orientation correlation as function of distance defined by Eq.~\eqref{eq:distance_correlation} at equilibrium for $\rho = 0.25$ (left) and $\rho = 0.75$ (center). The points are calculated for simulations with $N = 6400$ particles and the results are averaged over $400$ samples as described in sec.~\ref{subsec:simulation_details}. Lines are the best linear fit to the results in range $0.01 < C(\Delta z) < 0.45$. (Right) shows $r^*$ as defined in \eqref{eq:slopes_def}.}
+	\captionsetup{justification=centering, width=0.9\textwidth}
+	\caption{Orientation correlation as function of distance defined by Eq.~\eqref{eq:distance_correlation} at equilibrium for $\rho = 0.25$ (left) and $\rho = 0.75$ (center). The points are calculated for simulations with $N = 6400$ particles and the results are averaged over $400$ samples as described in sec.~\ref{subsec:simulation_details}. Lines are the best (least squares) linear fit to the results in range $0.01 < C(\Delta z) < 0.45$. (Right) shows $r^*$, which is the slope of $log(C(\Delta z))$ .}
 	\label{fig:dist_corr_eq}
-\end{figure}
+\end{figure*}
 
-The exponential decay of correlation with length for every combination of simulation parameters shows that we do not have any critical transition occurring in the system under study, despite non-zero order parameter observed above.
+The exponential decay of correlation with length for every combination of simulation parameters shows that we do not have any critical transition occurring in the system under study, despite non-zero order parameter observed above. However, looking at how power of the exponents depends on the $k_BT$, we can see the power-law behavior, especially for the high density (Fig.~\ref{fig:dist_corr_eq}, Right).
 
-We could now write $C(\Delta z)$ as
-\begin{equation}
-	\label{eq:slopes_def}
-	C(\Delta z) \propto \exp\left[-\frac{\Delta z}{r^*(k_BT, \rho)} \right]
-\end{equation}
-where $r^*$ is the correlation length and depends on the system density and $k_BT$. The dependence of $r^*$ on the $k_BT$ for different system densities is shown at the Figure \ref{fig:dist_corr_eq_slopes}. We must note the similarity in behavior of order parameter and the correlation distance, however, the obtained results suggest slow (power-law) increase in correlation distance with decrease in $k_BT$.
+%We could now write $C(\Delta z)$ as
+%\begin{equation}
+%	\label{eq:slopes_def}
+%	C(\Delta z) \propto \exp\left[-\frac{\Delta z}{r^*(k_BT, \rho)} \right]
+%\end{equation}
+%where $r^*$ is the correlation length and depends on the system density and $k_BT$. The dependence of $r^*$ on the $k_BT$ for different system densities is shown at the Figure \ref{fig:dist_corr_eq_slopes}. We must note the similarity in behavior of order parameter and the correlation distance, however, the obtained results suggest slow (power-law) increase in correlation distance with decrease in $k_BT$.
 
 %\begin{figure}[h]
 %\centering

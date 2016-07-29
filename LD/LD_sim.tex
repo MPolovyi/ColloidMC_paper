@@ -110,7 +110,7 @@ where $\boldsymbol{\mu}$ is dipole moment of particle on which torque acts, and 
 \end{equation}
 where $\mu$ is dipole moment of the particle inducing the field.
 
-We integrate the above equations using the Velocity-Verlet integration scheme, as proposed in~\cite{Taylor2013}. The adaptation of the scheme to use quaternions to define rotation dynamic follows the framework expressed in~\cite{}. The gist of adaptation is presented in Appendices~\ref{subsec:integration_method}.
+We integrate the above equations using the Velocity-Verlet integration scheme~\cite{Taylor2013}. The adaptation of the scheme to use quaternions to define rotation dynamic follows the framework expressed in~\cite{Zhao2013}. The gist of adaptation is presented in Appendices.
 
 \subsection{Diffusion properties}
 For non-interacting spheres the relation between rotational and translational diffusion coefficient can be obtained \cite{C5SM02754C}. The former is given by the Stokes-Einstein relation
@@ -130,4 +130,4 @@ where $T$ is the thermostat temperature, $\eta$ the viscosity of the medium and 
 	.
 \end{equation}
 
-Using well known estimates for diffusion coefficients when $t \rightarrow \inf$, we can check the implementation and quality of integration scheme. The results are shown in the Appendices~\ref{subsec:statistical_properties}
+Using well known estimates for diffusion coefficients when $t \rightarrow \inf$, we can check the implementation and quality of integration scheme. The results are shown in the Appendices.
