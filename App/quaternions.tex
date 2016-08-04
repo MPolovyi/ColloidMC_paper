@@ -1,60 +1,60 @@
 \section{Appendix}
 \subsection{Quaternions}
 
-Quaternion $q = (\omega, \vec{a})$ with a norm $\norm{q} = 1$ defines rotation around axis parallel to $\vec{a}$ on the angle $\cos^{-1}(2 \omega)$. 
+Quaternion $q = (\omega, \boldsymbol{a})$ with a norm $\norm{q} = 1$ defines rotation around axis parallel to $\boldsymbol{a}$ on the angle $\cos^{-1}(2 \omega)$. 
 
 One can define quaternion norm
 \begin{equation}
-\norm{q} = |\omega| + \norm{\vec{a}}
+\norm{q} = |\omega| + \norm{\boldsymbol{a}}
 \end{equation}
 
 Quaternion conjugation
 \begin{equation}
-q^{-1} = (\omega, -\vec{a})
+q^{-1} = (\omega, -\boldsymbol{a})
 \end{equation}
 
 And quaternion product
-\begin{equation}
+\begin{multline}
 \label{eq:quaternion_product}
-q_3 = q_1 q_2 = \left(\omega_1 \omega_2 - \vec{a}_1 \cdot \vec{a}_2, \quad \omega_1 \vec{a}_2 + \omega_2 \vec{a}_1 + [\vec{a}_1 \times \vec{a}_2] \right)
-\end{equation}
+q_3 = q_1 q_2 \\ = \left(\omega_1 \omega_2 - \boldsymbol{a}_1 \cdot \boldsymbol{a}_2, \quad \omega_1 \boldsymbol{a}_2 + \omega_2 \boldsymbol{a}_1 + [\boldsymbol{a}_1 \times \boldsymbol{a}_2] \right)
+\end{multline}
 
-If we have a unit vector $\vec{a}_1$ and want to rotate the vector $\vec{r}$  around it on the angle $\omega_1$, first we need to construct quaternion
+If we have a unit vector $\boldsymbol{a}_1$ and want to rotate the vector $\boldsymbol{b}$  around it on the angle $\omega_1$, first we need to construct quaternion
 \begin{equation}
 q_1 = \left(
 		\cos\left(\frac{\omega_1}{2}\right),
-		\vec{a}_1 \sin\left(\frac{\omega_1}{2}\right)
+		\boldsymbol{a}_1 \sin\left(\frac{\omega_1}{2}\right)
 	\right)
 \end{equation}
-which represents the rotation $\mathbb{R}_1$, and then to apply $\mathbb{R}_1$ to $\vec{r}$
+which represents the rotation $\mathbb{R}_1$, and then to apply $\mathbb{R}_1$ to $\boldsymbol{b}$
 \begin{equation}
 \label{eq:quaternion_rotation}
-	\vec{r}\,' = q_1\, \vec{r}\, q_1^{-1}
+	\boldsymbol{b}\,' = q_1\, \boldsymbol{b}\, q_1^{-1}
 \end{equation}
-where $\vec{r'}$ is the new state of the vector $\vec{r}$ after rotation, and $q_1^{-1}$ is the quaternion conjugate to $q_1$.
+where $\boldsymbol{r'}$ is the new state of the vector $\boldsymbol{b}$ after rotation, and $q_1^{-1}$ is the quaternion conjugate to $q_1$.
 
-Multiplication $q_i \vec{r}$ should be done by the rules of quaternion product \eqref{eq:quaternion_product}. The vector $\vec{r}$ should be treated as quaternion $q_r = (0, \vec{r}\,)$.
+Multiplication $q_i \boldsymbol{b}$ should be done by the rules of quaternion product \eqref{eq:quaternion_product}. The vector $\boldsymbol{b}$ should be treated as quaternion $q_r = (0, \boldsymbol{b}\,)$.
 
-If we have a rotation $\mathbb{R}_1$ represented by quaternion $q_1$ and rotation $\mathbb{R}_2$ represented by quaternion $q_2$, and we want to apply them to vector $\vec{r}$ in order $\mathbb{R}_1,\ \mathbb{R}_2$, by definition \eqref{eq:quaternion_rotation} we can write
+If we have a rotation $\mathbb{R}_1$ represented by quaternion $q_1$ and rotation $\mathbb{R}_2$ represented by quaternion $q_2$, and we want to apply them to vector $\boldsymbol{b}$ in order $\mathbb{R}_1,\ \mathbb{R}_2$, by definition \eqref{eq:quaternion_rotation} we can write
 \begin{equation}
-	\vec{r}\,''
-	= q_2\, \vec{r}\,' q_2^{-1} 
-	= q_2\, q_1\, \vec{r}\, q_1^{-1}\, q_2^{-1}
+	\boldsymbol{b}\,''
+	= q_2\, \boldsymbol{b}\,' q_2^{-1} 
+	= q_2\, q_1\, \boldsymbol{b}\, q_1^{-1}\, q_2^{-1}
 \end{equation}
 and if we define $q_3 = q_2\, q_1$, then $q_3^{-1} = q_1^{-1}\, q_2^{-1}$ and then
 \begin{equation}
-	\vec{r}\,'' = q_3\, \vec{r}\, q_3^{-1}
+	\boldsymbol{b}\,'' = q_3\, \boldsymbol{b}\, q_3^{-1}
 \end{equation}
 Therefore, compound rotation of two sequential rotations which are represented by quaternions $q_1$ and $q_2$ is represented by quaternion $q_3 = q_2\, q_1$, where $q_2\, q_1$ is quaternion product \eqref{eq:quaternion_product}. Rotation represented by the rightmost quaternion is applied first, then the one represented by the second-rightmost, and so on.
 
-If we define a global reference frame, then any quaternion $q$ can also define a rotated reference frame. To get coordinates $\vec{r}\,'$ of a vector $\vec{r}$ defined in global frame in rotated, one only have to apply quaternion $q$ to vector $\vec{r}$. To go back to global reference frame from $\vec{r}\,'$, one have to apply $q^{-1}$ to $\vec{r}\,'$.
+If we define a global reference frame, then any quaternion $q$ can also define a rotated reference frame. To get coordinates $\boldsymbol{b}\,'$ of a vector $\boldsymbol{b}$ defined in global frame in rotated, one only have to apply quaternion $q$ to vector $\boldsymbol{b}$. To go back to global reference frame from $\boldsymbol{b}\,'$, one have to apply $q^{-1}$ to $\boldsymbol{b}\,'$.
 \begin{equation}
 	\begin{aligned}
-		\vec{r}\,' = q \vec{r} q^{-1}
+		\boldsymbol{b}\,' = q \boldsymbol{b} q^{-1}
 	\end{aligned}
 	\qquad
 	\qquad
 	\begin{aligned}
-		\vec{r} = q^{-1} \vec{r}\,' q
+		\boldsymbol{b} = q^{-1} \boldsymbol{b}\,' q
 	\end{aligned}
 \end{equation}

@@ -1,10 +1,10 @@
 %!TEX root = ..\main.tex
-\section{Langevin Dynamics}
+\section{Relaxation Dynamics}
 \label{sec:langevin_dynamics}
 
 \subsection{Langevin equations}
 \label{subsec:langevin_equations}
-To study dynamics we performed Langevin dynamics simulations. Accordingly, each particle trajectory is resolved by solving two coupled stochastic differential equations,
+To study the relaxation dynamics, using Langevin dynamics we performed particle-based simulations. Each particle trajectory is resolved by solving two coupled stochastic differential equations,
 \begin{equation}
 \label{eq:langevin_theory_1}
 	\dot{\boldsymbol{r}}(t) = \boldsymbol{v}(t)
@@ -12,22 +12,22 @@ To study dynamics we performed Langevin dynamics simulations. Accordingly, each 
 and
 \begin{equation}
 \label{eq:langevin_theory_2}
-	m \dot{\boldsymbol{v}}(t) = \boldsymbol{f}(\boldsymbol{r}, t) - \alpha_{tr} \boldsymbol{v}(t) + \boldsymbol{\beta}_{tr}(t)
+	m \dot{\boldsymbol{v}}(t) = \boldsymbol{f}(\boldsymbol{r}, t) - \frac{m}{\tau_{tr}} \boldsymbol{v}(t) + \boldsymbol{\beta}_{tr}(t)
 	,
 \end{equation}
-where $m$ is the particle mass, $\boldsymbol{r}$ and $\boldsymbol{v}$ are the particle coordinates and velocity,  $\alpha_{tr}$ is the damping coefficient related to the drag, and $f(r, t)$ is a force acting on a particle, which comprises of interparticle interaction. $\boldsymbol{\beta}_{tr}$ is a stochastic force, and in order to satisfy dissipation-fluctuation theorem, every component of it is assumed to be Gaussian-distributed, with
+where $m$ is the particle mass, $\boldsymbol{r}$ and $\boldsymbol{v}$ are the particle coordinates and velocity,  $\tau_{tr}$ is the translational damping time, and $\boldsymbol{f}(\boldsymbol{r}, t)$ is the net force acting on a particle. $\boldsymbol{\beta}_{tr}$ is a stochastic force, every component of which is Gaussian-distributed, in order to satisfy dissipation-fluctuation theorem, with
 \begin{equation}
-\langle\beta_{tr}(t)\rangle = 0
+\langle\boldsymbol{\beta}_{tr}(t)\rangle = 0
 \end{equation}
 and
 \begin{equation}
 \label{eq:stochastic_term_dispersion}
-	\langle\beta_{tr}(t)\beta_{tr}(t')\rangle = 2 \alpha_{tr} k_B 		T\delta(t - t')
+	\langle\boldsymbol{\beta}_{tr}(t)\boldsymbol{\beta}_{tr}(t')\rangle = 2 \frac{m}{\tau_{tr}} k_B 		T\delta(t - t')
 	,
 \end{equation}
 where $k_B$ is the Boltzmann constant, $T$ is thermostat temperature, $\delta$ is the Dirac delta function and the average is an ensemble average.
 
-Similarly, the trajectory of rotation motion is obtained by solving two stochastic differential equations,
+Similarly, the equations for the rotational degrees of freedom are
 \begin{equation}
 \label{eq:langevin_theory_3}
 	\dot{\boldsymbol{\phi}}(t) = \boldsymbol{\omega}(t)
@@ -35,12 +35,12 @@ Similarly, the trajectory of rotation motion is obtained by solving two stochast
 and
 \begin{equation}
 \label{eq:langevin_theory_4}
-	m \dot{\boldsymbol{\omega}}(t) = \boldsymbol{\tau}(r, t) - \alpha_{r} \boldsymbol{\omega}(t) + \boldsymbol{\beta}_{r}(t)
+	m \dot{\boldsymbol{\omega}}(t) = \boldsymbol{\tau}(r, t) - \frac{m}{\tau_{r}} \boldsymbol{\omega}(t) + \boldsymbol{\beta}_{r}(t)
 	,
 \end{equation}
-where $\phi$ is particle orientation angles, $\omega$ is the angular velocity, $I$ is the inertia and $\tau$ is the torque exerted on a particle. $\boldsymbol{\beta}_{r}(t)$ is the torque resulting from stochastic force rotating particle, and its components are also assumed to be Gaussian-distributed with zero mean.
+where $\phi$ is particle orientation angles, $\boldsymbol{\omega}$ is the angular velocity, $I$ is the inertia and $\boldsymbol{\tau}$ is the torque exerted on a particle. $\boldsymbol{\beta}_{r}(t)$ is the a stochastic torque, and its components are also assumed to be Gaussian-distributed with zero mean.
 
-As we can see from Eqs.~(\ref{eq:langevin_theory_1}, \ref{eq:langevin_theory_2}, \ref{eq:langevin_theory_3}, \ref{eq:langevin_theory_4}), for the rotational motion the form of equations remains unchanged, and they are equivalent to the translation equations under following transformation.
+As we can see from Eqs.~\eqref{eq:langevin_theory_1}, \eqref{eq:langevin_theory_2}, \eqref{eq:langevin_theory_3}, \eqref{eq:langevin_theory_4}, for the rotational motion the form of equations remains unchanged, and they are equivalent to the translation equations under following transformation:
 \begin{equation}
 \label{eq:rotation_translation_substitution}
 	\begin{aligned}[c]
@@ -51,83 +51,65 @@ As we can see from Eqs.~(\ref{eq:langevin_theory_1}, \ref{eq:langevin_theory_2},
 	\qquad
 	\begin{aligned}[c]
 		I &\rightarrow m        \\
-		\boldsymbol{\tau}(r, t) &\rightarrow \boldsymbol{f}(r, t)
+		\boldsymbol{\tau}(\boldsymbol{r}, t) &\rightarrow \boldsymbol{f}(\boldsymbol{r}, t)
 	\end{aligned}
 \end{equation}
-
-The scalar values are transformed as is, while vectors are replaced with pseudo-vectors.
-
-The damping coefficients $\alpha$ for translation ($\alpha_{tr}$) and rotation ($\alpha_r$) are different, and can be obtained in following way.
-
-First to simplify the particle-medium interaction we need to define damping time $\tau$, which determines how rapidly thermal fluctuations in particles positions and orientations decays, and for translational motion it is given by
+Considering spherical particles, for translation motion the damping time is given by
 \begin{equation}
 \label{eq:Translation_damping_time}
 	\tau_{tr} = \frac{m}{6 \pi \eta R}
 	,
 \end{equation}
-where $m$ is the particle mass, $\eta$ is the viscosity and $R$ is the particle radius. For rotation $\tau_{tr} / \tau_{r} = 10/3$, which can be obtained from Stokes-Einstein-Debye relations and relation between particle mass and inertia.
-
-And then the $\alpha_t$ and $\alpha_r$ are defined
+where $m$ is the particle mass, $\eta$ is the viscosity and $R$ is the particle radius. From Stokes-Einstein-Debye relation~\cite{MazzaPhysRevE76031203},
 \begin{equation}
-	\begin{aligned}
-		\alpha_{tr} = \frac{m}{\tau_{tr}}
-	\end{aligned}
-	\qquad
-	\qquad
-	\begin{aligned}
-		\alpha_r = \frac{I}{\tau_r}
-	\end{aligned}
+	\frac{D_r}{D_{tr}} = \frac{3}{4 R^2}
 	,
 \end{equation}
-where $m$ is the particle mass, $I$ is the inertia, $\tau_{tr,r}$ are the damping times.
+we find the rotational damping time $\tau_{r} = 3\tau_{tr} / 10$.
 
-\subsection{Interactions}
+\subsection{Pairwise interactions}
 
-To perform simulations we need to define forces acting on the particles.
-
-First of all, as in the Monte-Carlo simulations we restrict interactions to the immediate neighbors (particle $i$ interacts only with particles $i+1$ and $i-1$).
+As in the Monte-Carlo simulations we restrict interactions to the immediate neighbors.
 
 The force acting on a particle is defined by gradient of potential energy.
 \begin{equation}
 \label{eq:full_force}
 	\boldsymbol{F}_{ij}
-		= -\boldsymbol{\nabla} E_{ij}
-		=  \frac{\hat{r}}{r^4} \left[3 D - A\, r^2 (k r +1) \, \exp(-k r) \right],
+		= -\boldsymbol{\nabla} U_{ij},
 \end{equation}
-where $D = 3 \cos \theta_1 \cos \theta_2 - (\hat{m}_1 \cdot \hat{m}_2)$ stands for orientational part of dipole-dipole potential and $\boldsymbol{r}$ connects particle centers. The other parameters are the same as in Eqs.~\eqref{eq:dipole_dipole_1D}~and~\eqref{eq:yukawa_interaction}.
+where $U_{ij} = U^\mathrm{dip}_{ij} + U^\mathrm{rep}_{ij}$ as defined by Eqs.~\eqref{eq:dipole_dipole_1D}~and~\eqref{eq:yukawa_interaction}.
 
 The torque on a particle results only from the dipole-dipole interaction. Therefore it is calculated as
 \begin{equation}
 \label{eq:dipole_torque}
 	\boldsymbol{\tau}  = \mu[\hat{\mu} \times \boldsymbol{E}_d ],
 \end{equation}
-where $\boldsymbol{\mu}$ is dipole moment of particle on which torque acts, and $\boldsymbol{E}_d$ is dipole field produced by acting particle:
-
+where $\boldsymbol{\mu}$ is the dipole moment of particle on which the torque acts, and $\boldsymbol{E}_d$ is the dipole field produced by acting particle:
 \begin{equation}
 \label{eq:dipole_field}
 	\boldsymbol{E}_d = \frac{\mu}{r^3}
 		\left(3 (\hat{\mu} \cdot \hat{r}) \hat{r} - \hat{\mu} \right),
 \end{equation}
-where $\mu$ is dipole moment of the particle inducing the field.
+where $\boldsymbol{\mu}$ is dipole moment of the particle inducing the field.
 
-We integrate the above equations using the Velocity-Verlet integration scheme~\cite{Taylor2013}. The adaptation of the scheme to use quaternions to define rotation dynamic follows the framework expressed in~\cite{Zhao2013}. The gist of adaptation is presented in Appendices.
+We integrate the above equations using the Velocity-Verlet integration scheme~\cite{Taylor2013}. The adaptation of the scheme to use quaternions to define rotation dynamic follows the framework described in Ref.~\onlinecite{Zhao2013}. Further details are provided in the Appendices.
 
-\subsection{Diffusion properties}
-For non-interacting spheres the relation between rotational and translational diffusion coefficient can be obtained \cite{C5SM02754C}. The former is given by the Stokes-Einstein relation
-\begin{equation}
-\label{eq:translational_diffusion_coefficient}
-	D_{tr} = \frac{k_B T}{6 \pi \eta R}
-\end{equation}
-and the latter is given by Stokes-Einstein-Debye relation
-\begin{equation}
-\label{eq:rotational_diffusion_coefficient}
-	D_r = \frac{k_B T}{8 \pi \eta R^3}
-	,
-\end{equation}
-where $T$ is the thermostat temperature, $\eta$ the viscosity of the medium and $k_B$ the Boltzmann constant. The relation between $D_{tr}$ and $D_r$ is given by
-\begin{equation}
-	\frac{D_r}{D_{tr}} = \frac{3}{4 R^2}
-	.
-\end{equation}
-
-Using well known estimates for diffusion coefficients when $t \rightarrow \inf$, we can check the implementation and quality of integration scheme. The results are shown in the Appendices.
+%\subsection{Diffusion properties}
+%For non-interacting spheres the relation between rotational and translational diffusion coefficient can be obtained \cite{C5SM02754C}. The former is given by the Stokes-Einstein relation
+%\begin{equation}
+%\label{eq:translational_diffusion_coefficient}
+%	D_{tr} = \frac{k_B T}{6 \pi \eta R}
+%\end{equation}
+%and the latter is given by Stokes-Einstein-Debye relation
+%\begin{equation}
+%\label{eq:rotational_diffusion_coefficient}
+%	D_r = \frac{k_B T}{8 \pi \eta R^3}
+%	,
+%\end{equation}
+%where $T$ is the thermostat temperature, $\eta$ the viscosity of the medium and $k_B$ the Boltzmann constant. The relation between $D_{tr}$ and $D_r$ is given by
+%\begin{equation}
+%	\frac{D_r}{D_{tr}} = \frac{3}{4 R^2}
+%	.
+%\end{equation}
+%
+%Using well known estimates for diffusion coefficients when $t \rightarrow \inf$, we can check the implementation and quality of integration scheme. The results are shown in the Appendices.

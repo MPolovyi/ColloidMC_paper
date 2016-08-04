@@ -1,0 +1,73 @@
+\subsection{Integration method}
+\label{subsec:integration_method}
+
+The integration scheme for translational equations of motion proposed in~\cite{Taylor2013} is as follows
+\begin{equation}
+\label{eq:tr_coordinate_change}
+	\boldsymbol{r}^{n+1} = \boldsymbol{r}^n + dt \left(
+	 b_{tr} \boldsymbol{v}^n
+	 + \frac{b_{tr} dt}{2m}\boldsymbol{f}^n
+	 + \frac{b_{tr}}{2m}\boldsymbol{\beta}_{tr}^{n+1}
+	\right)
+\end{equation}
+\begin{multline}
+\label{eq:tr_velocity_change}
+	\boldsymbol{v}^{n+1} = \boldsymbol{v}^n 
+	 + \frac{dt}{2m}\left(
+	 	\boldsymbol{f}^n + \boldsymbol{f}^{n+1}
+	 \right) \\
+	 - \frac{\alpha_{t}}{m}\left(
+	 	\boldsymbol{r}^{n+1} - \boldsymbol{r}^n
+	 \right)
+	 + \frac{1}{m}\boldsymbol{\beta}_{tr}^{n+1}
+	 .
+\end{multline}
+In the above equations, the $dt$ is integration time step, the $n$ index is time steps, $b_{tr}$ accounts for the drag, and $\boldsymbol{\beta}_{tr}^{n+1}$ is a stochastic force at the time $n+1$, with $\boldsymbol{\beta}_{tr}^{0} = 0$. Important to note that we use the same stochastic force for coordinates and velocity calculations, which reduces computation time. $\boldsymbol{f}^n$ is the force acting on the particle at the time $n$.
+
+The same integration scheme can be used for rotation, with proper change of variables (see Eq.~(\ref{eq:rotation_translation_substitution}))
+\begin{equation}
+\label{eq:rot_angle_change}
+	\boldsymbol{\phi}^{n+1} = \boldsymbol{\phi}^n + dt \left(
+		  b_{r} \boldsymbol{\omega}^n
+		  + \frac{b_{r} dt}{2I}\boldsymbol{\tau}^n
+		  + \frac{b_{r} }{2I}\boldsymbol{\beta}_{r}^{n+1}
+	 \right)
+\end{equation}
+\begin{equation}
+\label{eq:rot_ang_velocity_change}
+	\boldsymbol{\omega}^{n+1} = \boldsymbol{\omega}^n
+	+ \frac{dt}{2m}\left(
+		\boldsymbol{\tau}^n + \boldsymbol{\tau}^{n+1}
+	\right)
+	- \frac{\alpha_{r}}{I}\Delta \boldsymbol{u}
+	+ \frac{1}{I}\boldsymbol{\beta}_{r}^{n+1}
+\end{equation}
+here $\Delta \boldsymbol{u} \equiv \left(\boldsymbol{\phi}^{n+1} - \boldsymbol{\phi}^n\right)$ is rotation of the particle within one integration step. Vector $\Delta u$ is parallel to the axis around which particle has rotated on the angle $|\Delta u|$ radians. The coefficients $b_{tr}$ and $b_{r}$ account for the drag exerted on a particle by surrounding medium,
+\begin{equation}
+\label{eq:drag_coefficient}
+	\begin{aligned}
+		b_{tr} = \frac{1}{1 + \frac{\alpha_{tr} dt}{2 m}}
+	\end{aligned}
+	\qquad
+	\text{and}
+	\qquad
+	\begin{aligned}
+		b_r = \frac{1}{1 + \frac{\alpha_r dt}{2 I}}
+	\end{aligned}
+	.
+\end{equation}
+When $\alpha_{tr} = 0$, from Eq.~\eqref{eq:drag_coefficient}, we obtain $b_{tr} = 1$ and from Eq.~\eqref{eq:stochastic_term_dispersion} we obtain $\langle\beta_{tr}(t)\beta_{tr}(t')\rangle = 0$. Then the above equations reduces to the standard velocity-Verlet scheme. The damping is calculated as integral  over real path travelled by particle within time step (under assumption that damping time does not change within $dt$ and $\Delta r$) \textcolor{red}{Yes, the damping time is constant, but even if it isn't, this assumption is enough for this scheme to work.}.
+
+If using integration scheme defined in Eq.~(\ref{eq:rot_angle_change}), effective angular velocity of a particle within every time step is
+\begin{equation}
+\label{eq:effective_angular_velocity}
+	\tilde{\boldsymbol{\omega}}^n = b_{r} \boldsymbol{\omega}^n
+	+ \frac{b_{r} dt}{2I}\boldsymbol{\tau}^n
+	+ \frac{b_{r} }{2I}\boldsymbol{\beta}_{r}^{n+1}.
+\end{equation}
+
+By the definition, angular velocity $\tilde{\omega}^n$ is directed parallel to the axis around which particle is rotated by an angle of $|\tilde{\omega}^n|dt$ per time step $dt$. Therefore, if particle orientation is defined by quaternion $q$, then Eq.~\eqref{eq:rot_angle_change} can be written as
+\begin{equation}
+q^{n+1} = \tilde{q}\,^n q^{n} ,
+\end{equation}
+where $q^n$ and $q^{n+1}$ is the quaternion representation of orientation on time steps $n$ and $n+1$ respectively, and $\tilde{q}\,^n q^{n}$ is quaternion multiplication. $\tilde{q}\,^n$ is the quaternion representation of rotation around $\tilde{\omega}^n$ by the angle $|\tilde{\omega}^n|$.

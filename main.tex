@@ -9,17 +9,12 @@
 ]{revtex4-1}
 \usepackage[utf8]{inputenc}
 \usepackage[export]{adjustbox}
-%\usepackage{amsmath}
-%\usepackage{amsfonts}
-%\usepackage{amssymb}
 \usepackage{xcolor}
-\usepackage{graphicx}
-\usepackage{subcaption}
-%\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+%\usepackage{subfig}
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
-\newcommand{\figref}[1]{Figure~\ref{#1}}
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
 
 \begin{document}
 
@@ -27,16 +22,17 @@
 
 \newpage
 \input{MC/MC_sim}
-\input{Results/MC_Results}
+% \input{Results/MC_Results}
 
 \newpage
 \input{LD/LD_sim}
 \input{Results/LD_Results}
 
 \newpage
-%\input{App/quaternions}
-%\input{App/LD_integration}
-%\input{App/LD_statistics_check}
+\newpage
+\input{App/quaternions}
+\input{App/LD_integration}
+\input{App/LD_statistics_check}
 
 \newpage
 \bibliographystyle{plain}
